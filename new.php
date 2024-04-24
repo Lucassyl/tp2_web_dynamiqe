@@ -16,6 +16,9 @@ tinymce.init({
 
 </head>
 <body>
+  <?php
+    include_once("includes/header.html");
+  ?>
 
 <h1>Ceci est un exemple d'utilisation de TinyMCE</h1>
 
