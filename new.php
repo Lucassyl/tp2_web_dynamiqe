@@ -17,16 +17,16 @@ tinymce.init({
 </head>
 <body>
 
-<h1>Ceci est un exemple d'utilisation de TinyMCE</h1>
+  <h1>Ceci est un exemple d'utilisation de TinyMCE</h1>
 
-<p><a href="https://www.tiny.cloud/docs/tinymce/latest/basic-setup/">Documentation de TinyMCE</a></p>
+  <p><a href="https://www.tiny.cloud/docs/tinymce/latest/basic-setup/">Documentation de TinyMCE</a></p>
 
-<form action="à remplir" method="post">
-    <textarea name="content" id="content">
-      Welcome to TinyMCE!
-    </textarea>
-    <input type="submit" value="Soumettre">
-</form>
+  <form action="à remplir" method="post">
+      <textarea name="content" id="content">
+        Welcome to TinyMCE!
+      </textarea>
+      <input type="submit" value="Soumettre">
+  </form>
     
 </body>
 </html>
