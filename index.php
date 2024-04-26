@@ -17,7 +17,11 @@
     <!-- Javascript -->
     <script defer src="js/code.js"></script>
 </head>
-<body class="d-flex">
+    
+<body class="">
+    <?php
+        include_once("includes/header.php");
+    ?>
     <main class="flex-fill min-vh-100">
         <div class="row align-items-center mx-auto">
             <div class="col-12 text-center mb-4">
@@ -25,10 +29,10 @@
                 <a href="part1.php" class="btn btn-primary mt-4">Créer mon personnage</a>
             </div>
         </div>
-        <?php
-            session_destroy();
-            include_once("includes/footer.html");
-        ?>
+        
     </main>
+    <?php
+        include_once("includes/footer.html");
+    ?>
 </body>
 </html>
