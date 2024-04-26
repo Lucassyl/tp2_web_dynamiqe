@@ -6,9 +6,14 @@
     <title>Page de connexion</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    
+    <script src="js/bootstrap.min.js" defer></script>
+    <script defer src="js/code.js"></script>
 
 </head>
 <body>
     
+    
+
 </body>
 </html>
