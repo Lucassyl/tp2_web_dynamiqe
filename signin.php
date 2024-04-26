@@ -11,7 +11,7 @@
     <script defer src="js/code.js"></script>
 
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
     
     <?php 
     include_once('includes/header.php'); 
@@ -21,11 +21,14 @@
     <?php
     if (isset($_POST['txtLogin']) && isset($_POST['txtPassword']))
     {
-        $information = $conn->prepare('SELECT * FROM usagers WHERE login = :login AND enc_password = :enc_password');
-        $information->execute(array(':login' => $_POST['txtLogin'], ':enc_password' => $_POST['txtPassword']));
-        //Problème avec le hash
-        $hash = password_hash($information, PASSWORD_ARGON2ID);
-        $is_valid = password_verify($_POST['txtPassword'], $information);
+        $req = $conn->prepare('SELECT login, enc_password FROM usagers WHERE login = :login AND enc_password = :enc_password');
+        $req->bindValue(':login', $_POST['txtLogin'], PDO::PARAM_STR);
+        $req->bindValue(':enc_password', $_POST['txtPassword'], PDO::PARAM_STR);
+        $req->execute();
+        
+        $information = $req->fetch(PDO::FETCH_ASSOC);
+
+        $is_valid = password_verify($_POST['txtPassword'], $information['enc_password']);
 
         if ($is_valid == false)
         {

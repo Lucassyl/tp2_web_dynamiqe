@@ -1,3 +1,11 @@
+<?php 
+if (!isset($_POST['txtLogin']) && !isset($_POST['txtPassword']))
+{
+    header('Location:signin.php');
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
