@@ -7,13 +7,13 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>Exercice Bootstrap</title>
+    <title>Page principal</title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
     <!-- Javascript pour bootstrap-->
-    <script src="js/bootstrap/bootstrap.bundle.min.js" defer></script>
+    <script src="js/bootstrap.min.js" defer></script>
     <!-- Javascript -->
     <script defer src="js/code.js"></script>
 </head>
