@@ -13,5 +13,12 @@
 
 <body>
     
+    <?php include_once('includes/header.php'); ?>
+
+    <h1>Bien!</h1>
+
+
+    <?php include_once('includes/footer.html'); ?>
+
 </body>
 </html>
