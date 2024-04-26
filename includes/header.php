@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header PHP</title>
+</head>
+<body>
+    
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div>
         <a class="navbar-brand" href="#">Place holder</a>
@@ -20,3 +29,6 @@
         </div>
     </div>
 </nav>
+    
+</body>
+</html>
