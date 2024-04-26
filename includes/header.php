@@ -6,7 +6,10 @@
     <title>Header PHP</title>
 </head>
 <body>
-    
+<?php
+    include_once("includes/connection.php");
+    include("includes/sujetsDAO.class.php");
+?>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div>
         <a class="navbar-brand" href="#">Place holder</a>
@@ -15,15 +18,42 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <?php
-                        
-                    ?>
-                    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2">Toggle both elements</button>
-                </li>
+                <?php
+                    $sujets = new sujetsDAO();
+                    $sujetList = $sujets->getAll($conn);
+                    while($sujet = $sujetList->fetch()) {
+                            /*echo '<div class="col-7">
+                              <div class="row rounded border border-dark text-center justify-content-center align-items-center">
+                                <p class="col-12">'.$voiture['Fabricant'].' '.$voiture['Modele'].' ('.$voiture['Couleur'].')</p>
+                                <p class="col-12">'.$voiture['Prix'].'.00 $</p>
+                              </div>
+                            </div>';*/
+                        echo '<li class="nav-item">
+                            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample'.$sujet['id'].'" aria-expanded="false" aria-controls="multiCollapseExample'.$sujet['id'].'">Toggle elements</button>
+                            </li>';
+                    }
+                    $sujetList->closeCursor();
+                ?>
                 <div class="row">
                     <?php
-                    
+                        $sujets = new sujetsDAO();
+                        $sujetList = $sujets->getAll($conn);
+                        while($sujet = $sujetList->fetch()) {
+                                /*echo '<div class="col-7">
+                                <div class="row rounded border border-dark text-center justify-content-center align-items-center">
+                                    <p class="col-12">'.$voiture['Fabricant'].' '.$voiture['Modele'].' ('.$voiture['Couleur'].')</p>
+                                    <p class="col-12">'.$voiture['Prix'].'.00 $</p>
+                                </div>
+                                </div>';*/
+                            echo '<div class="col">
+                                    <div class="collapse multi-collapse" id="multiCollapseExample'.$sujet['id'].'">
+                                        <div class="card card-body">
+                                            '.$sujet['nom'].'
+                                        </div>
+                                    </div>
+                                </div>';
+                        }
+                        $sujetList->closeCursor();
                     ?>
                 </div>
                 <!--<li class="nav-item">

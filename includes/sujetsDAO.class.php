@@ -1,8 +1,6 @@
 <?php
 
-//include("includes/compteDAO.class.php");
-
-class compteDAO{
+class sujetsDAO{
 
     private static $id = 0;
     const MAX_NAME_LENGTH = 60;
@@ -12,7 +10,7 @@ class compteDAO{
 
     function __construct(){}
 
-    function add($connexion, string $nom,  int $anneeNaissance, float $solde) : void {
+    function add($conn, string $nom,  int $anneeNaissance, float $solde) : void {
         if(strlen($nom) > self::MAX_NAME_LENGTH){
             throw new Exception('Invalid Name.');
         }elseif($anneeNaissance < self::MIN_YEAR || $anneeNaissance > self::MAX_YEAR){
@@ -21,7 +19,7 @@ class compteDAO{
             throw new Exception('Invalid Solde.');
         }else{
             self::$id += self::$id;
-            $compte = $connexion->prepare('INSERT INTO compte (id, nom, annee, solde) VALUES (:id, :nom, :annee, :solde)');
+            $compte = $conn->prepare('INSERT INTO compte (id, nom, annee, solde) VALUES (:id, :nom, :annee, :solde)');
             $compte->bindValue(':id', self::$id, PDO::PARAM_STR);
             $compte->bindValue(':nom', $nom, PDO::PARAM_STR);
             $compte->bindValue(':annee', $anneeNaissance, PDO::PARAM_STR);
@@ -30,21 +28,27 @@ class compteDAO{
         }
     }
 
-    function update(int $id, $connexion, float $solde) : void {
+    function update(int $id, $conn, float $solde) : void {
         if($solde > self::MAX_SOLDE){
             throw new Exception('Invalid Solde.');
         }else{
-            $compte = $connexion->prepare('UPDATE compte SET solde = :solde WHERE id = :id)');
+            $compte = $conn->prepare('UPDATE compte SET solde = :solde WHERE id = :id)');
             $compte->bindValue(':id', $id, PDO::PARAM_STR);
             $compte->bindValue(':solde', $solde, PDO::PARAM_STR);
             $compte->execute();
         }
     }
 
-    function get($connexion, int $id) {
-        $compte = $connexion->prepare('SELECT * FROM compte WHERE id = :id');
-        $compte->bindValue(':id', $id, PDO::PARAM_STR);
-        return $compte;
+    function get($conn, int $id) {
+        $sujets = $conn->prepare('SELECT * FROM sujets WHERE id = :id');
+        $sujets->bindValue(':id', $id, PDO::PARAM_STR);
+        return $sujets;
+    }
+
+    function getAll($conn){
+        $sujets = $conn->prepare('SELECT * FROM sujets');
+        $sujets->execute();
+        return $sujets;
     }
 }
 ?>
