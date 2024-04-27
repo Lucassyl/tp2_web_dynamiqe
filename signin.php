@@ -21,23 +21,30 @@
     <?php
     if (isset($_POST['txtLogin']) && isset($_POST['txtPassword']))
     {
-        $req = $conn->prepare('SELECT login, enc_password FROM usagers WHERE login = :login AND enc_password = :enc_password');
+        $req = $conn->prepare('SELECT login, enc_password FROM usagers WHERE login = :login');
         $req->bindValue(':login', $_POST['txtLogin'], PDO::PARAM_STR);
-        $req->bindValue(':enc_password', $_POST['txtPassword'], PDO::PARAM_STR);
         $req->execute();
         
         $information = $req->fetch(PDO::FETCH_ASSOC);
 
-        $is_valid = password_verify($_POST['txtPassword'], $information['enc_password']);
-
-        if ($is_valid == false)
+        if ($information !== false)
         {
-            echo '<p class="error-no-admin">Aucun identifiant trouvé!</p>';
+            $login = $information['login'];
+            $password_hash = $information['enc_password'];
+
+            if ($login == $_POST['txtLogin'] && password_verify($_POST['txtPassword'], $password_hash))
+            {
+                header('Location:list.php');
+                exit;
+            }
+            else
+            {
+                echo '<p class="error-no-admin">Mot de passe ou identifiant erroné</p>';
+            }
         }
         else
         {
-            header('Location:list.php');
-            exit;
+            echo '<p class="error-no-admin">Aucun identifiant trouvé!</p>';
         }
     }
     ?>
