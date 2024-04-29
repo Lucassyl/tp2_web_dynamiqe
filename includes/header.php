@@ -34,11 +34,11 @@
                                         if(count($pagesArray) > 0){
                                             foreach ($pagesArray as &$page){
                                                 if($page->getVisibilite() == true){
-                                                            echo '<li class="body-nav border border-primary rounded list-group-item collapse multi-collapse" id="multiCollapseExample'.$i.'"><a class="navbar-brand" href="#">'.$page->getNomMenu().'</a></li>';
+                                                            echo '<li class="body-nav border border-secondary rounded list-group-item collapse multi-collapse" id="multiCollapseExample'.$i.'"><a class="navbar-brand" href="#">'.$page->getNomMenu().'</a></li>';
                                                 }
                                             }
                                         }else{
-                                            echo '<li class="border border-dark rounded list-group-item  collapse multi-collapse" id="multiCollapseExample'.$i.'"><a class="navbar-brand" href="#">pas de pages pour ce sujet</a></li>';
+                                            echo '<li class="body-nav border border-secondary rounded list-group-item  collapse multi-collapse" id="multiCollapseExample'.$i.'"><a class="navbar-brand" href="#">pas de pages pour ce sujet</a></li>';
                                         }
                                     }
                                 }
