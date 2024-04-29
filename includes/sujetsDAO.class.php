@@ -1,16 +1,28 @@
 <?php
 
+include("includes/sujets.class.php");
+
 class sujetsDAO{
 
-    private static $id = 0;
-    const MAX_NAME_LENGTH = 60;
-    const MIN_YEAR = 1000;
-    const MAX_YEAR = 9999;
-    const MAX_SOLDE = 99999999.99;
+    private PDO $db;
 
-    function __construct(){}
+    function __construct(PDO $db){
+        $this->db = $db;
+    }
 
-    function add($conn, string $nom,  int $anneeNaissance, float $solde) : void {
+    function getAllByPosition() : array {
+        $sujets = $this->db->prepare("SELECT * FROM sujets ORDER BY position");
+        $sujets->execute();
+        $array = array();
+        while($sujet = $sujets->fetch()){
+            $sujetObjet = new Sujets($sujet["id"], $sujet["nom"], $sujet["position"], $sujet["visible"]);
+            array_push($array, $sujetObjet);
+        }
+        $sujets->closeCursor();
+        return $array;
+    }
+
+    /*function add($conn, string $nom,  int $anneeNaissance, float $solde) : void {
         if(strlen($nom) > self::MAX_NAME_LENGTH){
             throw new Exception('Invalid Name.');
         }elseif($anneeNaissance < self::MIN_YEAR || $anneeNaissance > self::MAX_YEAR){
@@ -43,12 +55,12 @@ class sujetsDAO{
         $sujets = $conn->prepare('SELECT * FROM sujets WHERE id = :id');
         $sujets->bindValue(':id', $id, PDO::PARAM_STR);
         return $sujets;
-    }
+    }*/
 
-    function getAll($conn){
+    /*function getAll($conn){
         $sujets = $conn->prepare('SELECT * FROM sujets');
         $sujets->execute();
         return $sujets;
-    }
+    }*/
 }
 ?>

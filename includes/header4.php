@@ -22,8 +22,8 @@
                     $nombreDeSujet = count($sujetsArray);
                     foreach ($sujetsArray as &$sujet){
                         if($sujet->getVisibilite() == true){
-                            echo '<li class="nav-item">
-                                <div class="" style="width: 18rem;">
+                            echo '<li class="nav-item card">
+                                <div class="card-header" style="width: 18rem;">
                                     <button class="nav-link" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample'.$sujet->getId().'" aria-expanded="false" aria-controls="multiCollapseExample'.$sujet->getId().'">'.$sujet->getNom().'</button>
                                 </div>
                                 <ul class="list-group list-group-flush">';
@@ -34,11 +34,11 @@
                                         if(count($pagesArray) > 0){
                                             foreach ($pagesArray as &$page){
                                                 if($page->getVisibilite() == true){
-                                                            echo '<li class="body-nav border border-primary rounded list-group-item collapse multi-collapse" id="multiCollapseExample'.$i.'"><a class="navbar-brand" href="#">'.$page->getNomMenu().'</a></li>';
+                                                            echo '<li class="list-group-item collapse multi-collapse" id="multiCollapseExample'.$i.'"><a class="navbar-brand" href="#">'.$page->getNomMenu().'</a></li>';
                                                 }
                                             }
                                         }else{
-                                            echo '<li class="border border-dark rounded list-group-item  collapse multi-collapse" id="multiCollapseExample'.$i.'"><a class="navbar-brand" href="#">pas de pages pour ce sujet</a></li>';
+                                            echo '<li class="list-group-item  collapse multi-collapse" id="multiCollapseExample'.$i.'"><p class="navbar-brand">pas de pages pour ce sujet</p></li>';
                                         }
                                     }
                                 }
