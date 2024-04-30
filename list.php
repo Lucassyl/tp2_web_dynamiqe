@@ -12,7 +12,7 @@ if (!isset($_POST['txtLogin']) && !isset($_POST['txtPassword']))
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liste des pages</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
 
     <script src="js/bootstrap.min.js" defer></script>

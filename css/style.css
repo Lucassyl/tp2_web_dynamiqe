@@ -1,3 +1,26 @@
-.body-nav{
+.body-nav
+{
     background-color: #244c55;
 }
+
+/* Page signin.php */
+.h1-main
+{
+    color: white;
+}
+
+.signin-main
+{
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    
+    margin-top: 5px;
+    text-align: center;
+}
+
+.login-signin, .password-signin, .bouton-connexion-signin
+{
+    margin: 5px;
+}
+
