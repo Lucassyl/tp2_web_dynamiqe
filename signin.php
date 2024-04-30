@@ -32,7 +32,7 @@
             $login = $information['login'];
             $password_hash = $information['enc_password'];
 
-            if ($login == $_POST['txtLogin'] && password_verify($_POST['txtPassword'], $password_hash))
+            if ($login === $_POST['txtLogin'] && password_verify($_POST['txtPassword'], $password_hash) == true)
             {
                 header('Location:list.php');
                 exit;
