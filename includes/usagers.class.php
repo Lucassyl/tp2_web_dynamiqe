@@ -1,13 +1,13 @@
 <?php
 declare(strict_types=1);
 
-class Sujets {
+class usagers {
 
     private int $id;
     private string $login;
     private string $encPassword;
 
-    function __construct(int $id, string $login,  int $encPassword) {
+    function __construct(int $id, string $login,  string $encPassword) {
         try{
             self::setId($id);
             self::setLogin($login);
@@ -21,29 +21,28 @@ class Sujets {
         $this->id = $id;
     }
 
-    function setPosition(int $position) : void {
-        $this->position = $position;
+    function setLogin(string $login) : void {
+        $this->login = $login;
     }
 
-    function setNom(string $nom) : void {
-        $this->nom = $nom;
+    function setEncPassword(string $encPassword) : void {
+        $this->encPassword = $encPassword;
     }
 
     function getId() : int {
         return $this->id;
     }
 
-    function getPosition() : int {
-        return $this->position;
-    }
-
     function getNom() : string {
-        return $this->nom;
+        return $this->login;
     }
 
+    function getEncPassword() : string {
+        return $this->encPassword;
+    }
 
     function __toString() : string {
-        return '<p>Id : '.$this->nom.' ( Id : '.$this->id.'), Position : '.$this->position.' Visible :'.$this->visible.'</p><br>';
+        return '<p>Login : '.$this->login.' ( Id : '.$this->id.'), Password : '.$this->encPassword.'</p><br>';
     }
 }
 ?>
