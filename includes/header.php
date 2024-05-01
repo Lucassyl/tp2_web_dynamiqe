@@ -20,7 +20,7 @@
                     $sujets = new sujetsDAO($conn);
                     $sujetsArray = $sujets->getAllByPosition();
                     $nombreDeSujet = count($sujetsArray);
-                    foreach ($sujetsArray as &$sujet)
+                    foreach ($sujetsArray as $sujet)
                     {
                         if($sujet->getVisibilite() == true)
                         {
@@ -41,7 +41,7 @@
                                         $pagesArray = $pages->getAllBySujetId($i);
                                         if(count($pagesArray) > 0)
                                         {
-                                            foreach ($pagesArray as &$page)
+                                            foreach ($pagesArray as $page)
                                             {
                                                 if($page->getVisibilite() == true)
                                                 {
