@@ -1,9 +1,12 @@
 <?php 
-if (!isset($_POST['txtLogin']) && !isset($_POST['txtPassword']))
+session_start();
+
+if (!isset($_SESSION['txtLogin']) && !isset($_SESSION['txtPassword']))
 {
     header('Location:signin.php');
     exit;
 }
+
 ?>
 
 <!DOCTYPE html>

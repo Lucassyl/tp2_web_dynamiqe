@@ -1,3 +1,7 @@
+<?php 
+session_start(); 
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -34,13 +38,18 @@
 
             if ($login === $_POST['txtLogin'] && password_verify($_POST['txtPassword'], $password_hash) == true)
             {
+                $_SESSION['txtLogin'] = $_POST['txtLogin'];
+                $_SESSION['txtPassword'] = $_POST['txtPassword'];
                 header('Location:list.php');
                 exit;
             }
             else
             {
-                echo '<b class="error-signin">Mot de passe ou identifiant erroné</b>';
+                echo '<b class="error-signin">Mot de passe erroné</b>';
             }
+
+            $req->closeCursor();
+            $conn = null;
         }
         else
         {

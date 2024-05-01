@@ -20,12 +20,6 @@
         include_once("includes/header.php");
     ?>
     <main class="flex-fill min-vh-100">
-        <div class="row align-items-center mx-auto">
-            <div class="col-12 text-center mb-4">
-                <img src="img/logo.svg" alt="Game_Logo" class="mx-auto d-block img-fluid">
-                <a href="part1.php" class="btn btn-primary mt-4">Créer mon personnage</a>
-            </div>
-        </div>
         
     </main>
     <?php
