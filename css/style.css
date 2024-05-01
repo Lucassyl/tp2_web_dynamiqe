@@ -1,13 +1,7 @@
+/* Classe générale */
 .body-nav
 {
     background-color: #244c55;
-}
-
-/* Page signin.php */
-.error-signin
-{
-    color: red;
-    text-align: center;
 }
 
 .h1-main
@@ -15,12 +9,28 @@
     color: white;
 }
 
-.signin-main
+.signin-main, .index-main
 {
     width: 1200px;
     margin-left: auto;
     margin-right: auto;
 
+    text-align: center;
+}
+
+
+/* Page index.php */
+.bouton-connexion-index
+{
+    size: 500px;
+}
+
+
+
+/* Page signin.php */
+.error-signin
+{
+    color: red;
     text-align: center;
 }
 
@@ -38,4 +48,10 @@
     width: 100px;
     margin-right: 10px;
 }
+
+
+/* Page list.php */
+
+
+
 

@@ -15,12 +15,20 @@
     <script defer src="js/code.js"></script>
 </head>
     
-<body class="">
+<body class="index-body">
     <?php
         include_once("includes/header.php");
     ?>
-    <main class="flex-fill min-vh-100">
-        
+    <main class="index-main flex-fill min-vh-100">
+        <h1 class="h1-main">Bienvenue!</h1>
+        <div class="redirection-page-index">
+            <div class="bouton-connexion">
+                <button class="bouton-connexion-index"><a href="signin.php">Connexion</a></button>
+            </div>
+            <div class="bouton-déconnexion">
+
+            </div>
+        </div>
     </main>
     <?php
         include_once("includes/footer.html");
