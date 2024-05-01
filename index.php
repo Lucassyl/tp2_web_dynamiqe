@@ -19,7 +19,7 @@
     <?php
         include_once("includes/header.php");
     ?>
-    <main class="index-main flex-fill min-vh-100">
+    <main class="index-main flex-fill min-vh-50">
         <h1 class="h1-main">Bienvenue!</h1>
         <div class="redirection-page-index">
             <div class="bouton-index">
@@ -31,12 +31,16 @@
             ?>
             <!-- Bouton temporaire de test  -->
             <div class="bouton-index">
-                <button class="bouton-connexion-index"><a href="signin.php" class="lien-bouton-index">Déconnexion</a></button>
+                <button class="bouton-connexion-index"><a href="index.php" class="lien-bouton-index" id="deconnexion">Déconnexion</a></button>
             </div>
+            <?php
+            if (isset($_POST['deconnexion']))
+            {
+                session_destroy();
+            }
+            ?>
         </div>
     </main>
-    <?php
-        include_once("includes/footer.html");
-    ?>
+    <?php include_once('includes/footer.php'); ?>
 </body>
 </html>

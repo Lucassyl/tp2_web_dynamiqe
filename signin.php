@@ -89,7 +89,7 @@ session_start();
         </form>
     </main>
 
-    <?php include_once('includes/footer.html'); ?>
+    <?php include_once('includes/footer.php'); ?>
 
 </body>
 </html>

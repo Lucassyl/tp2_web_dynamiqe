@@ -29,7 +29,7 @@ if (!isset($_SESSION['txtLogin']) && !isset($_SESSION['txtPassword']))
     <h1>Bien!</h1>
 
 
-    <?php include_once('includes/footer.html'); ?>
+    <?php include_once('includes/footer.php'); ?>
 
 </body>
 </html>
