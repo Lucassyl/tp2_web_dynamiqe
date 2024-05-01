@@ -27,13 +27,30 @@
             </div>
             <?php
             //Implémenter le code php de la base de données pour afficher le pages
-            
+            $pages = new pagesDAO($conn);
+            $pagesArray = $pages->getAllBySujetId($i);
+            if(count($pagesArray) > 0)
+            {
+                foreach ($pagesArray as &$page)
+                {
+                    if($page->getVisibilite() == true)
+                    {
+                        echo '<div class="list-group-item collapse multi-collapse" id="multiCollapseExample'.$i.'"><a class="navbar-brand" href="#">'.$page->getNomMenu().'</a></div>';
+                        echo '<button class="bouton-connexion-index"><a href="index.php" class="lien-bouton-index" onclick="">Déconnexion</a></button>';
+                    }
+                }
+            }
+            else
+            {
+                echo '<li class="list-group-item  collapse multi-collapse" id="multiCollapseExample'.$i.'"><p class="navbar-brand">pas de pages pour ce sujet</p></li>';
+            }
             ?>
             <!-- Bouton temporaire de test  -->
             <div class="bouton-index">
-                <button class="bouton-connexion-index"><a href="index.php" class="lien-bouton-index" id="deconnexion">Déconnexion</a></button>
+                <button class="bouton-connexion-index"><a href="index.php" class="lien-bouton-index" onclick="">Déconnexion</a></button>
             </div>
             <?php
+            //Problème ici à régler pour enlever le message dans le footer
             if (isset($_POST['deconnexion']))
             {
                 session_destroy();
