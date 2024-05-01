@@ -24,14 +24,7 @@
     <main class="index-main flex-fill min-vh-50">
         <h1 class="h1-main">Bienvenue!</h1>
         <div class="redirection-page-index">
-            <div class="bouton-index">
-                <button class="bouton-connexion-deconnexion-index"><a href="signin.php" class="lien-bouton-index">Connexion</a></button>
-            </div>
-            <div class="bouton-index">
-                <button class="bouton-connexion-deconnexion-index"><a href="index.php" class="lien-bouton-index" onclick="">Déconnexion</a></button>
-            </div>
             <?php
-            //Implémenter le code php de la base de données pour afficher le pages
             $pages = new pagesDAO($conn);
             $pagesArray = $pages->getAllPages();
             if(count($pagesArray) > 0)
@@ -42,7 +35,6 @@
                     {
                     ?>
                     <div class="bouton-index">
-                        <!-- Revoir le redirect vers la page plus tard -->
                         <button class="bouton-page-index"><a href="#" class="lien-bouton-index"><?php echo $page->getNomMenu(); ?></a></button>
                     </div>
                     <?php

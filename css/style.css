@@ -25,6 +25,12 @@
     padding-right: 20px;
 }
 
+.lien-connexion-header, .lien-deconnexion-header
+{
+    margin: 8px;
+    color: rgb(189, 189, 189);
+}
+
 
 /* Footer */
 .admin-connecte
@@ -38,14 +44,6 @@
 .redirection-page-index
 {
     display: flex;
-}
-
-.bouton-connexion-deconnexion-index
-{
-    width: 600px;
-    height: 50px;
-
-    background-color: rgb(43, 53, 73);
 }
 
 /* Regarder flex pour mettre 2 bouton par ligne */
