@@ -39,12 +39,12 @@
             }
             else
             {
-                echo '<p class="error-no-admin">Mot de passe ou identifiant erroné</p>';
+                echo '<b class="error-signin">Mot de passe ou identifiant erroné</b>';
             }
         }
         else
         {
-            echo '<p class="error-no-admin">Aucun identifiant trouvé!</p>';
+            echo '<b class="error-signin">Aucun identifiant trouvé!</b>';
         }
     }
     ?>
