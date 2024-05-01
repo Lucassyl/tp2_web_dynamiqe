@@ -20,24 +20,37 @@
                     $sujets = new sujetsDAO($conn);
                     $sujetsArray = $sujets->getAllByPosition();
                     $nombreDeSujet = count($sujetsArray);
-                    foreach ($sujetsArray as &$sujet){
-                        if($sujet->getVisibilite() == true){
-                            echo '<li class="nav-item">
+                    foreach ($sujetsArray as $sujet)
+                    {
+                        if($sujet->getVisibilite() == true)
+                        {
+                            ?>
+                            <li class="nav-item">
                                 <div class="" style="width: 18rem;">
-                                    <button class="nav-link" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample'.$sujet->getId().'" aria-expanded="false" aria-controls="multiCollapseExample'.$sujet->getId().'">'.$sujet->getNom().'</button>
+                                <?php
+                                    echo '<button class="nav-link" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample'.$sujet->getId().'" aria-expanded="false" aria-controls="multiCollapseExample'.$sujet->getId().'">'.$sujet->getNom().'</button>';
+                                ?>
                                 </div>
-                                <ul class="list-group list-group-flush">';
-                                for($i = 1; $i <= $nombreDeSujet; $i++){
-                                    if($i == $sujet->getId()){
+                                <ul class="list-group list-group-flush">
+                            <?php
+                                for($i = 1; $i <= $nombreDeSujet; $i++)
+                                {
+                                    if($i == $sujet->getId())
+                                    {
                                         $pages = new pagesDAO($conn);
                                         $pagesArray = $pages->getAllBySujetId($i);
-                                        if(count($pagesArray) > 0){
-                                            foreach ($pagesArray as &$page){
-                                                if($page->getVisibilite() == true){
-                                                            echo '<li class="body-nav border border-secondary rounded list-group-item collapse multi-collapse" id="multiCollapseExample'.$i.'"><a class="navbar-brand" href="#">'.$page->getNomMenu().'</a></li>';
+                                        if(count($pagesArray) > 0)
+                                        {
+                                            foreach ($pagesArray as $page)
+                                            {
+                                                if($page->getVisibilite() == true)
+                                                {
+                                                    echo '<li class="body-nav border border-secondary rounded list-group-item collapse multi-collapse" id="multiCollapseExample'.$i.'"><a class="navbar-brand" href="#">'.$page->getNomMenu().'</a></li>';
                                                 }
                                             }
-                                        }else{
+                                        }
+                                        else
+                                        {
                                             echo '<li class="body-nav border border-secondary rounded list-group-item  collapse multi-collapse" id="multiCollapseExample'.$i.'"><a class="navbar-brand" href="#">Pas de pages pour ce sujet</a></li>';
                                         }
                                     }
@@ -46,8 +59,20 @@
                             </li>';
                         }
                     }
-                    
-                ?>
+                    ?>
+                    <div class="lien-connexion-header">
+                        <a href="signin.php" class="lien-connexion-header">Connexion</a></button>
+                    </div>
+                    <div class="lien-connexion-header">
+                        <a href="" class="lien-deconnexion-header" onclick="">Déconnexion</a></button>
+                    </div>
+                    <?php 
+                    //Revoir pour le session destroy
+                    if(isset($_POST['deconnexion']))
+                    {
+                        session_destroy();
+                    }
+                    ?>
             </ul>
         </div>
     </div>
