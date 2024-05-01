@@ -40,7 +40,16 @@
     display: flex;
 }
 
-.bouton-connexion-index
+.bouton-connexion-deconnexion-index
+{
+    width: 600px;
+    height: 50px;
+
+    background-color: rgb(43, 53, 73);
+}
+
+/* Regarder flex pour mettre 2 bouton par ligne */
+.bouton-page-index
 {
     width: 600px;
     height: 200px;
