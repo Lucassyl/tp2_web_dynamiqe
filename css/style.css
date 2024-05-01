@@ -20,6 +20,11 @@
 
 
 /* Page index.php */
+.redirection-page-index
+{
+    display: flex;
+}
+
 .bouton-connexion-index
 {
     size: 500px;

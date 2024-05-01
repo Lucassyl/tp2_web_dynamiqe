@@ -25,9 +25,10 @@
             <div class="bouton-connexion">
                 <button class="bouton-connexion-index"><a href="signin.php">Connexion</a></button>
             </div>
-            <div class="bouton-déconnexion">
-
-            </div>
+            <?php
+            //Implémenter le code php de la base de données pour afficher le pages
+            
+            ?>
         </div>
     </main>
     <?php
