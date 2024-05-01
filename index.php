@@ -26,14 +26,15 @@
                 <button class="bouton-connexion-index"><a href="signin.php" class="lien-bouton-index">Connexion</a></button>
             </div>
             <?php
-            //Implémenter le code php de la base de données pour afficher les pages
+            //Implémenter le code php de la base de données pour afficher le pages
             
             ?>
             <!-- Bouton temporaire de test  -->
             <div class="bouton-index">
-                <button class="bouton-connexion-index"><a href="index.php" class="lien-bouton-index" id="deconnexion">Déconnexion</a></button>
+                <button class="bouton-connexion-index"><a href="index.php" class="lien-bouton-index" onclick="">Déconnexion</a></button>
             </div>
             <?php
+            //Problème ici à régler pour enlever le message dans le footer
             if (isset($_POST['deconnexion']))
             {
                 session_destroy();

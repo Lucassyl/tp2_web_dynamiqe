@@ -38,7 +38,7 @@
                                                 }
                                             }
                                         }else{
-                                            echo '<li class="body-nav border border-secondary rounded list-group-item  collapse multi-collapse" id="multiCollapseExample'.$i.'"><a class="navbar-brand" href="#">pas de pages pour ce sujet</a></li>';
+                                            echo '<li class="body-nav border border-secondary rounded list-group-item  collapse multi-collapse" id="multiCollapseExample'.$i.'"><a class="navbar-brand" href="#">Pas de pages pour ce sujet</a></li>';
                                         }
                                     }
                                 }
