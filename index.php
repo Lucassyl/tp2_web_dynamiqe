@@ -22,13 +22,17 @@
     <main class="index-main flex-fill min-vh-100">
         <h1 class="h1-main">Bienvenue!</h1>
         <div class="redirection-page-index">
-            <div class="bouton-connexion">
-                <button class="bouton-connexion-index"><a href="signin.php">Connexion</a></button>
+            <div class="bouton-index">
+                <button class="bouton-connexion-index"><a href="signin.php" class="lien-bouton-index">Connexion</a></button>
             </div>
             <?php
             //Implémenter le code php de la base de données pour afficher le pages
             
             ?>
+            <!-- Bouton temporaire de test  -->
+            <div class="bouton-index">
+                <button class="bouton-connexion-index"><a href="signin.php" class="lien-bouton-index">Déconnexion</a></button>
+            </div>
         </div>
     </main>
     <?php

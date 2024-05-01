@@ -19,6 +19,13 @@
 }
 
 
+/* Header */
+.navbar-brand
+{
+    padding-right: 20px;
+}
+
+
 /* Page index.php */
 .redirection-page-index
 {
@@ -27,9 +34,17 @@
 
 .bouton-connexion-index
 {
-    size: 500px;
+    width: 600px;
+    height: 200px;
+
+    background-color: rgb(43, 53, 73);
 }
 
+.lien-bouton-index
+{
+    color: white;
+    text-decoration: none;
+}
 
 
 /* Page signin.php */

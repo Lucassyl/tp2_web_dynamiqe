@@ -13,7 +13,7 @@
 ?>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand " href="./index.php">Page de bienvenue</a>
+        <a class="navbar-brand" href="./index.php">Accueil</a>
         <div class="navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <?php
