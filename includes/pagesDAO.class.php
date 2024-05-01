@@ -22,5 +22,17 @@ class pagesDAO{
         $pages->closeCursor();
         return $array;
     }
+
+    function getAllPages() : array {
+        $pages = $this->db->prepare("SELECT * FROM pages ORDER BY position");
+        $pages->execute();
+        $array = array();
+        while($page = $pages->fetch()){
+            $pageObjet = new Pages($page["id"], $page["sujet_id"], $page["nom_menu"], $page["position"], $page["visible"], $page["contenu"]);
+            array_push($array, $pageObjet);
+        }
+        $pages->closeCursor();
+        return $array;
+    }
 }
 ?>

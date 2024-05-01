@@ -26,7 +26,7 @@
                 <button class="bouton-connexion-index"><a href="signin.php" class="lien-bouton-index">Connexion</a></button>
             </div>
             <?php
-            //Implémenter le code php de la base de données pour afficher le pages
+            //Implémenter le code php de la base de données pour afficher les pages
             
             ?>
             <!-- Bouton temporaire de test  -->
