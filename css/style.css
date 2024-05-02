@@ -44,19 +44,39 @@
 .redirection-page-index
 {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-/* Regarder flex pour mettre 2 bouton par ligne */
+.bouton-index
+{
+    width: 49.1%;
+    margin: 5px;
+}
+
+
 .bouton-page-index
 {
-    width: 600px;
+    width: 100%;
     height: 200px;
 
     background-color: rgb(43, 53, 73);
 }
 
+
+.bouton-lien_list-index
+{
+    width: 100%;
+    height: 50px;
+    
+    background-color: rgb(43, 53, 73);
+}
+
 .lien-bouton-index
 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: white;
     text-decoration: none;
 }
