@@ -59,18 +59,21 @@
                             </li>';
                         }
                     }
-                    ?>
-                    <div class="lien-connexion-header">
-                        <a href="signin.php" class="lien-connexion-header">Connexion</a></button>
-                    </div>
-                    <div class="lien-connexion-header">
-                        <a href="" class="lien-deconnexion-header" onclick="">Déconnexion</a></button>
-                    </div>
-                    <?php 
-                    //Revoir pour le session destroy
-                    if(isset($_POST['deconnexion']))
+                    if (!isset($_SESSION['txtLogin']) && !isset($_SESSION['txtPassword']))
                     {
-                        session_destroy();
+                        ?>
+                        <div class="lien-connexion-header">
+                            <a href="signin.php" class="lien-connexion-header">Connexion</a></button>
+                        </div>
+                        <?php
+                    }
+                    else
+                    {
+                        ?>
+                        <div class="lien-connexion-header">
+                            <a href="includes/logoutPage.php" class="lien-deconnexion-header" >Déconnexion</a></button>
+                        </div>
+                        <?php
                     }
                     ?>
             </ul>
