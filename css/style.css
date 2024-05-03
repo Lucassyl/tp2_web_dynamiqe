@@ -7,9 +7,10 @@
 .h1-main
 {
     color: white;
+    margin-top: 5px;
 }
 
-.signin-main, .index-main
+.signin-main, .index-main, .list-main
 {
     width: 1200px;
     margin-left: auto;
@@ -104,7 +105,54 @@
 }
 
 
+/* Page page.php */
+
+
+
 /* Page list.php */
+.div-new-page-list
+{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.button-new-page-list
+{
+    width: 25%;
+    height: 30px;
+    
+    background-color: rgb(43, 53, 73);
+}
+
+.lien-new-page-list
+{
+    color: white;
+    text-decoration: none;
+}
+
+
+.selection-page-list
+{
+    border: 1px solid black;
+}
+
+.titre-action-page-list
+{
+    display: flex;
+}
+
+.h2-titre-list
+{
+    justify-content: flex-start;
+    color: white;
+}
+
+.h2-action-list
+{
+    justify-content: flex-end;
+    color: white;
+}
+
 
 
 

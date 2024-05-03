@@ -25,11 +25,14 @@
         <h1 class="h1-main">Bienvenue!</h1>
         <div class="redirection-page-index">
             <?php
-            if(isset($_GET["id"])){
+            if(isset($_GET["id"]))
+            {
                 $pages = new pagesDAO($conn);
                 $page = $pages->getPageById(intval($_GET["id"]));
                 echo '<p>'.$page->getContenu().'</p>';
-            }else{
+            }
+            else
+            {
                 header('Location:index.php');
                 exit;
             }

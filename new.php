@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['txtLogin']) && !isset($_SESSION['txtPassword']))
+{
+    header('Location:signin.php');
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -17,7 +27,7 @@ tinymce.init({
 </head>
 <body>
   <?php
-    include_once("includes/header.html");
+    include_once("includes/header.php");
   ?>
 
   <h1>Ceci est un exemple d'utilisation de TinyMCE</h1>
@@ -30,6 +40,10 @@ tinymce.init({
       </textarea>
       <input type="submit" value="Soumettre">
   </form>
+
+  <?php
+    include_once("includes/footer.php");
+  ?>
     
 </body>
 </html>
