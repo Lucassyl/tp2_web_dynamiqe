@@ -34,40 +34,8 @@ session_start();
             header('Location:list.php');
             exit;
         }catch (Exception $e){
-            echo 'Caught exception: ',  $e->getMessage(), "\n";
+            echo $e->getMessage(), "\n";
         }
-        /*
-        $req = $conn->prepare('SELECT login, enc_password FROM usagers WHERE login = :login');
-        $req->bindValue(':login', $_POST['txtLogin'], PDO::PARAM_STR);
-        $req->execute();
-        
-        $information = $req->fetch(PDO::FETCH_ASSOC);
-
-        if ($information !== false)
-        {
-            $login = $information['login'];
-            $password_hash = $information['enc_password'];
-
-            if ($login === $_POST['txtLogin'] && password_verify($_POST['txtPassword'], $password_hash) == true)
-            {
-                $_SESSION['txtLogin'] = $_POST['txtLogin'];
-                $_SESSION['txtPassword'] = $_POST['txtPassword'];
-                header('Location:list.php');
-                exit;
-            }
-            else
-            {
-                echo '<b class="error-signin">Mot de passe erroné</b>';
-            }
-
-            $req->closeCursor();
-            $conn = null;
-        }
-        else
-        {
-            echo '<b class="error-signin">Aucun identifiant trouvé!</b>';
-        }
-        */
     }
     ?>
 

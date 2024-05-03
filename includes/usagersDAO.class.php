@@ -17,13 +17,13 @@ class usagersDAO{
         $matchingUsagers->execute();
         if($matchingUsagers->rowCount() <= self::EMPTY_ARRAY){
             $matchingUsagers->closeCursor();
-            throw new Exception('<b class="error-signin">Aucun identifiant trouvé!</b>');//No matching Usager existe
+            throw new Exception('<b class="error-signin">Aucun identifiant trouvé!</b>');
         }
         $match = $matchingUsagers->fetch();
         $usager = new usagers($match["id"], $match["login"], $match["enc_password"]);
         $matchingUsagers->closeCursor();
         if(!$usager->checkPassword($password)){
-            throw new Exception('<b class="error-signin">Mot de passe erroné</b>');//le mot de passe ne correspond pas à un utilisateur selectioné
+            throw new Exception('<b class="error-signin">Mot de passe erroné</b>');
         }
         return true;
     }
