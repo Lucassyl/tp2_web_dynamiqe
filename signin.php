@@ -26,14 +26,17 @@ session_start();
     <?php
     if (isset($_POST['txtLogin']) && isset($_POST['txtPassword']))
     {
-        try{
+        try
+        {
             $usagers = new usagersDAO($conn);
             $usagers->getMatchingUsagers($_POST['txtLogin'], $_POST['txtPassword']);
             $_SESSION['txtLogin'] = $_POST['txtLogin'];
             $_SESSION['txtPassword'] = $_POST['txtPassword'];
             header('Location:list.php');
             exit;
-        }catch (Exception $e){
+        }
+        catch (Exception $e)
+        {
             echo $e->getMessage(), "\n";
         }
     }
