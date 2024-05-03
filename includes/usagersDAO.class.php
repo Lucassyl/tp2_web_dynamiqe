@@ -17,19 +17,14 @@ class usagersDAO{
         $matchingUsagers->execute();
         if($matchingUsagers->rowCount() <= self::EMPTY_ARRAY){
             $matchingUsagers->closeCursor();
-            throw new Exception('No matching Usager existe');
+            throw new Exception('<b class="error-signin">Aucun identifiant trouvé!</b>');//No matching Usager existe
         }
+        $match = $matchingUsagers->fetch();
+        $usager = new usagers($match["id"], $match["login"], $match["enc_password"]);
         $matchingUsagers->closeCursor();
-
-        $matchingUsagers = $this->db->prepare("SELECT * FROM usagers WHERE login = :login AND enc_password = :password");
-        $matchingUsagers->bindValue(':login', $user, PDO::PARAM_STR);
-        $matchingUsagers->bindValue(':password', $password, PDO::PARAM_STR);
-        $matchingUsagers->execute();
-        if($matchingUsagers->rowCount() <= self::EMPTY_ARRAY){
-            $matchingUsagers->closeCursor();
-            throw new Exception('le mot de passe ne correspond pas à un utilisateur selectioné');
+        if(!$usager->checkPassword($password)){
+            throw new Exception('<b class="error-signin">Mot de passe erroné</b>');//le mot de passe ne correspond pas à un utilisateur selectioné
         }
-        $matchingUsagers->closeCursor();
         return true;
     }
 

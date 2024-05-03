@@ -41,6 +41,13 @@ class usagers {
         return $this->encPassword;
     }
 
+    function checkPassword(string $password) : bool {
+        if(password_verify($password, $this->encPassword)){
+            return true;
+        }
+        return false;
+    }
+
     function __toString() : string {
         return '<p>Login : '.$this->login.' ( Id : '.$this->id.'), Password : '.$this->encPassword.'</p><br>';
     }
