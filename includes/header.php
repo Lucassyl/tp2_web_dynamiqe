@@ -63,15 +63,18 @@
                     {
                         ?>
                         <div class="lien-connexion-header">
-                            <a href="signin.php" class="lien-connexion-header">Connexion</a></button>
+                            <a href="signin.php" class="lien-connexion-header">Connexion</a>
                         </div>
                         <?php
                     }
                     else
                     {
                         ?>
-                        <div class="lien-connexion-header">
-                            <a href="includes/logoutPage.php" class="lien-deconnexion-header" >Déconnexion</a></button>
+                        <div class="lien-deconnexion-header">
+                            <a href="includes/logoutPage.php" class="lien-deconnexion-header">Déconnexion</a>
+                        </div>
+                        <div class="lien-list-page-header">
+                            <a href="list.php" class="lien-list-page-header">Modifier une page</a>
                         </div>
                         <?php
                     }

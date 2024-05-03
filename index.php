@@ -41,15 +41,6 @@
                     }
                 }
             }
-            if (isset($_SESSION['txtLogin']) && isset($_SESSION['txtPassword']))
-            {
-                ?>
-                <!-- Revoir alignement à la fin en css -->
-                <div class="bouton-index">
-                    <button class="bouton-lien_list-index"><a href="list.php" class="lien-bouton-index">Liste des pages</a></button>
-                </div>
-                <?php
-            }
             ?>
         </div>
     </main>

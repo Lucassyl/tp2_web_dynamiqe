@@ -26,22 +26,22 @@ session_start();
     <?php
     if (isset($_POST['txtLogin']) && isset($_POST['txtPassword']))
     {
-        /*
+        
         $req = $conn->prepare('SELECT login, enc_password FROM usagers WHERE login = :login');
         $req->bindValue(':login', $_POST['txtLogin'], PDO::PARAM_STR);
         $req->execute();
         
         $information = $req->fetch(PDO::FETCH_ASSOC);
-        */
         
+        /*
         try{
             $usagers = new usagersDAO($conn);
             $usagers->getMatchingUsagers($_POST['txtLogin'], $_POST['txtPassword']);
         }catch (Exception $e){
             echo 'Caught exception: ',  $e->getMessage(), "\n";
         }
+        */
         
-        /*
         if ($information !== false)
         {
             $login = $information['login'];
@@ -66,7 +66,7 @@ session_start();
         {
             echo '<b class="error-signin">Aucun identifiant trouvé!</b>';
         }
-        */
+        
     }
     ?>
 
