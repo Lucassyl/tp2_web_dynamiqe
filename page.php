@@ -25,21 +25,13 @@
         <h1 class="h1-main">Bienvenue!</h1>
         <div class="redirection-page-index">
             <?php
-            $pages = new pagesDAO($conn);
-            $pagesArray = $pages->getAllPages();
-            if(count($pagesArray) > 0)
-            {
-                foreach ($pagesArray as $page)
-                {
-                    if($page->getVisibilite() == true)
-                    {
-                    ?>
-                    <div class="bouton-index">
-                        <button class="bouton-page-index"><a <?php echo 'href="page.php?id='.$page->getId().'"' ?> class="lien-bouton-index"><?php echo $page->getNomMenu(); ?></a></button>
-                    </div>
-                    <?php
-                    }
-                }
+            if(isset($_GET["id"])){
+                $pages = new pagesDAO($conn);
+                $page = $pages->getPageById(intval($_GET["id"]));
+                echo '<p>'.$page->getContenu().'</p>';
+            }else{
+                header('Location:index.php');
+                exit;
             }
             ?>
         </div>

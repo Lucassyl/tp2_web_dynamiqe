@@ -45,7 +45,7 @@
                                             {
                                                 if($page->getVisibilite() == true)
                                                 {
-                                                    echo '<li class="body-nav border border-secondary rounded list-group-item collapse multi-collapse" id="multiCollapseExample'.$i.'"><a class="navbar-brand" href="#">'.$page->getNomMenu().'</a></li>';
+                                                    echo '<li class="body-nav border border-secondary rounded list-group-item collapse multi-collapse" id="multiCollapseExample'.$i.'"><a class="navbar-brand" href="page.php?id='.$page->getId().'">'.$page->getNomMenu().'</a></li>';
                                                 }
                                             }
                                         }
