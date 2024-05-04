@@ -51,16 +51,18 @@ if (!isset($_SESSION['txtLogin']) && !isset($_SESSION['txtPassword']))
                     if($page->getVisibilite() == true)
                     {
                     ?>
-                    <div class="titre-page-list">
-                        <p class="paragraphe-titre-page"><?php echo $page->getNomMenu(); ?></p>
-                    </div>
-                    <div class="flex-action-list">
-                        <div class="action-page-edit-list">
-                            <button class="bouton-edit-list"><a href="edit.php?id=<?php echo $page->getId(); ?>" class="lien-edit-list">Modifier</a></button>
+                    <div class="conteneur-info-pages-list">
+                        <div class="titre-page-list">
+                            <p class="paragraphe-titre-page"><?php echo $page->getNomMenu(); ?></p>
                         </div>
-                        <div class="action-page-delete-list">
-                            <button class="bouton-delete-list"><a href="delete.php?id=<?php echo $page->getId(); ?>" class="lien-edit-list">Supprimer</a></button>
-                        </div>
+                        <div class="flex-action-list">
+                            <div class="action-page-edit-list">
+                                <button class="bouton-edit-list"><a href="edit.php?id=<?php echo $page->getId(); ?>" class="lien-edit-list">Modifier</a></button>
+                            </div>
+                            <div class="action-page-delete-list">
+                                <button class="bouton-delete-list"><a href="delete.php?id=<?php echo $page->getId(); ?>" class="lien-edit-list">Supprimer</a></button>
+                            </div>
+                        </div>                   
                     </div>
                     <?php
                     }
