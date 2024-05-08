@@ -19,7 +19,7 @@ if (!isset($_SESSION['txtLogin']) && !isset($_SESSION['txtPassword']))
 
 <script>
 tinymce.init({
-  selector: 'textarea',  // change this value according to the HTML
+  selector: 'textarea', // change this value according to the HTML
   toolbar: 'undo redo | bold italic | fontfamily fontsize | forecolor backcolor | alignleft aligncenter alignright alignjustify | outdent indent'
 });
 </script>
@@ -30,16 +30,29 @@ tinymce.init({
     include_once("includes/header.php");
   ?>
 
-  <h1>Ceci est un exemple d'utilisation de TinyMCE</h1>
+  <main class="new-main">
 
-  <p><a href="https://www.tiny.cloud/docs/tinymce/latest/basic-setup/">Documentation de TinyMCE</a></p>
+    <h1 class="h1-main">Ajouter une page!</h1>
 
-  <form action="à remplir" method="post">
-      <textarea name="content" id="content">
-        Welcome to TinyMCE!
-      </textarea>
-      <input type="submit" value="Soumettre">
-  </form>
+    <p><a href="https://www.tiny.cloud/docs/tinymce/latest/basic-setup/">Documentation de TinyMCE</a></p>
+
+    <form action="list.php" method="post">
+      <div class="contenu-page-new">
+        <div class="titre-page-new">
+          Titre de page : 
+          <textarea>Entrer votre titre de page</textarea>
+          </div>
+        <div class="champs-page-new">
+          Contenu de la page : 
+          <textarea>Entrer votre contenu</textarea>
+        </div>
+      </div>
+      <div class="submit-new-page">
+        <input type="submit" value="Soumettre">
+      </div>
+    </form>
+
+  </main>
 
   <?php
     include_once("includes/footer.php");
