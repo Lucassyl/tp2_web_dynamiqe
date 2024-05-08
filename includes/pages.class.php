@@ -73,15 +73,6 @@ class Pages {
         return $this->visible;
     }
 
-    /*function retirer(float $amount, $connexion) : void{
-        if($this->solde -= $amount < self::MINIMUM){
-            throw new Exception('Cannot be a negative value.');
-        }
-        $this->solde -= $amount;
-        self::updateSolde($this->solde, $connexion);
-        echo '<p>retrait de '.$amount.' du compte de '.$this->nom.'.</p><br>';
-    }*/
-
     function __toString() : string {
         return '<p>'.$this->nomMenu.'('.$this->id.' sujet Nombre : '.$this->sujetId.'), At Position : '.$this->position.' Visible :'.$this->visible.' '.$this->contenu.'</p><br>';
     }
