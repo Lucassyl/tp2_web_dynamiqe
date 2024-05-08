@@ -104,11 +104,6 @@
     margin-right: 10px;
 }
 
-
-/* Page page.php */
-
-
-
 /* Page list.php */
 .div-new-page-list
 {
@@ -186,6 +181,35 @@
     height: 30px;
     
     background-color: rgb(43, 53, 73);
+}
+
+
+/* Page new.php */
+
+.information-page-new
+{
+    display: flex;
+}
+
+.titre-page-new, .position-page-new, .id-sujet-page-new
+{
+    flex: 100%;
+}
+
+.champ-titre-nouvelle-page, .champ-position-nouvelle-page, .champ-id-sujet-nouvelle-page
+{
+    margin-top: 10px;
+    width: 98%;
+}
+
+.champs-page-new
+{
+    padding-top: 50px;
+}
+
+.submit-new-page
+{
+    padding-top: 10px;
 }
 
 
