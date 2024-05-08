@@ -1,8 +1,3 @@
-<?php
-/*
-session_start();
-*/
-?>
 <footer class="mt-5 text-center">
     <?php 
     if (isset($_SESSION['txtLogin']) && isset($_SESSION['txtPassword']))
