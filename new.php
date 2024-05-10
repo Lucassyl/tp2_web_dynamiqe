@@ -77,6 +77,16 @@ tinymce.init({
           }
           ?>>Entrer le sujet (en chiffre qui représente la position)</input>
         </div>
+        <div class="visibilite-page-new">
+          <b class="b-visibilite-new-page">Visibilité de la page : </b> 
+          <input type="number" name="visibiliteNouvellePageTxt" class="champ-visibilite-nouvelle-page"
+          <?php
+          if (isset($_POST['visibiliteNouvellePageTxt']))
+          {
+              echo 'value="' . $_POST['visibiliteNouvellePageTxt'] . '"';
+          }
+          ?>>0 pour invisible et 1 pour visible</input>
+        </div>
       </div>  
         <div class="champs-page-new">
           <b class="b-contenu-new-page">Contenu de la page : </b>

@@ -191,12 +191,12 @@
     display: flex;
 }
 
-.titre-page-new, .position-page-new, .id-sujet-page-new
+.titre-page-new, .position-page-new, .id-sujet-page-new, .visibilite-page-new
 {
     flex: 100%;
 }
 
-.champ-titre-nouvelle-page, .champ-position-nouvelle-page, .champ-id-sujet-nouvelle-page
+.champ-titre-nouvelle-page, .champ-position-nouvelle-page, .champ-id-sujet-nouvelle-page, .champ-visibilite-nouvelle-page
 {
     margin-top: 10px;
     width: 98%;
@@ -204,7 +204,7 @@
 
 .champs-page-new
 {
-    padding-top: 50px;
+    padding-top: 25px;
 }
 
 .submit-new-page
