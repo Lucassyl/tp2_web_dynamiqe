@@ -32,15 +32,6 @@ tinymce.init({
 <body>
   <?php
     include_once("includes/header.php");
-
-    if (isset($_POST['titreNouvellePageTxt']) && isset($_POST['positionNouvellePageTxt']) && isset($_POST['contenuNouvellePageTxt']))
-    {
-        $valeurTitre = $_POST['titreNouvellePageTxt'];
-        $valeurPosition = $_POST['positionNouvellePageTxt'];
-        $valeurContenu = $_POST['contenuNouvellePageTxt'];
-
-
-    }
   ?>
 
   <main class="new-main">
@@ -59,7 +50,7 @@ tinymce.init({
         </div>
         <div class="position-page-new">
           <b class="b-position-new-page">Position de la page : </b> 
-          <input type="number" name="positionNouvellePageTxt" class="champ-position-nouvelle-page" value=""
+          <input type="number" name="positionNouvellePageTxt" class="champ-position-nouvelle-page"
           <?php
           if (isset($_POST['positionNouvellePageTxt']))
           {
@@ -68,7 +59,7 @@ tinymce.init({
           ?>>Entrer la position de votre page</input>
         </div>
         <div class="id-sujet-page-new">
-          <b class="b-id-sujet-new-page">Sujet de la page : </b> 
+          <b class="b-id-sujet-new-page">Sujet de la page (Facultatif) : </b> 
           <input type="number" name="idSujetNouvellePageTxt" class="champ-id-sujet-nouvelle-page"
           <?php
           if (isset($_POST['idSujetNouvellePageTxt']))
@@ -90,7 +81,7 @@ tinymce.init({
       </div>  
         <div class="champs-page-new">
           <b class="b-contenu-new-page">Contenu de la page : </b>
-          <textarea name="contenuNouvellePageTxt" class="champ-contenu-nouvelle-page"
+          <textarea name="contenuNouvellePageTxt" class="champ-contenu-nouvelle-page" 
           <?php
           if (isset($_POST['contenuNouvellePageTxt']))
           {
@@ -98,6 +89,29 @@ tinymce.init({
           }
           ?>>Entrer votre contenu</textarea>
         </div>
+
+        <?php
+        if (isset($_POST['titreNouvellePageTxt']) && isset($_POST['positionNouvellePageTxt']) && isset($_POST['contenuNouvellePageTxt']) && ($_POST['visibiliteNouvellePageTxt'] != 0 ||$_POST['visibiliteNouvellePageTxt'] != 1))
+        {
+            $valeurTitre = $_POST['titreNouvellePageTxt'];
+            $valeurPosition = $_POST['positionNouvellePageTxt'];
+            $valeurVisible = $_POST['visibiliteNouvellePageTxt'];
+            $valeurContenu = $_POST['contenuNouvellePageTxt'];
+            $valeurSujet = $_POST['idSujetNouvellePageTxt'];
+    
+            header('Location:list.php');
+            exit;
+        }
+        else
+        {
+            ?>
+            <div class="erreur-new">
+              <p class="text-erreur-new">Un ou plusieurs champs non valide</p>
+            </div>
+            <?php
+        }
+        ?>
+
       <div class="submit-new-page">
         <button type="submit">Créer la page</button>
       </div>

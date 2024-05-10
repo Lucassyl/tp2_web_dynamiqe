@@ -10,7 +10,7 @@
     margin-top: 5px;
 }
 
-.signin-main, .index-main, .list-main, .new-main
+.signin-main, .index-main, .list-main, .new-main, .edit-main
 {
     width: 1200px;
     margin-left: auto;
@@ -205,6 +205,19 @@
 .champs-page-new
 {
     padding-top: 25px;
+}
+
+.erreur-new
+{
+    background-color: rgb(255, 75, 75);
+    border-radius: 7px;
+    margin-top: 2px;
+}
+
+.text-erreur-new
+{
+    text-align: center;
+    color: black;
 }
 
 .submit-new-page
