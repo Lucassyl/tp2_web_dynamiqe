@@ -1,3 +1,7 @@
+<?php
+    declare(strict_types=1);
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
