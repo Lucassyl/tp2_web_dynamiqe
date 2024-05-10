@@ -32,15 +32,6 @@ tinymce.init({
 <body>
   <?php
     include_once("includes/header.php");
-
-    if (isset($_POST['titreNouvellePageTxt']) && isset($_POST['positionNouvellePageTxt']) && isset($_POST['contenuNouvellePageTxt']))
-    {
-        $valeurTitre = $_POST['titreNouvellePageTxt'];
-        $valeurPosition = $_POST['positionNouvellePageTxt'];
-        $valeurContenu = $_POST['contenuNouvellePageTxt'];
-
-
-    }
   ?>
 
   <main class="new-main">
@@ -68,7 +59,7 @@ tinymce.init({
           ?>>Entrer la position de votre page</input>
         </div>
         <div class="id-sujet-page-new">
-          <b class="b-id-sujet-new-page">Sujet de la page : </b> 
+          <b class="b-id-sujet-new-page">Sujet de la page (Facultatif) : </b> 
           <input type="number" name="idSujetNouvellePageTxt" class="champ-id-sujet-nouvelle-page"
           <?php
           if (isset($_POST['idSujetNouvellePageTxt']))
@@ -98,6 +89,20 @@ tinymce.init({
           }
           ?>>Entrer votre contenu</textarea>
         </div>
+
+        <?php
+        if (isset($_POST['titreNouvellePageTxt']) && isset($_POST['positionNouvellePageTxt']) && isset($_POST['contenuNouvellePageTxt']))
+        {
+            $valeurTitre = $_POST['titreNouvellePageTxt'];
+            $valeurPosition = $_POST['positionNouvellePageTxt'];
+            $valeurContenu = $_POST['contenuNouvellePageTxt'];
+    
+    
+        }
+
+
+        ?>
+
       <div class="submit-new-page">
         <button type="submit">Créer la page</button>
       </div>

@@ -29,10 +29,10 @@
                     }
                     $page = $pages->getPageById($_GET["id"]);
                 ?>
-                <p class="text-center display-5"><strong>Warning !!!</strong></p>
-                <p class="text-center">you are about to delete the page <?php echo $page->getNomMenu(); ?>.</p>
-                <p class="text-center"><small><u>this change is permanant and cannot be undone!</u></small></p>
-                <p class="text-center">are you certain that you wish to continue?</p>
+                <p class="text-center display-5"><strong>Attention!!!</strong></p>
+                <p class="text-center">Vous êtes sur le point de supprimer la page <?php echo $page->getNomMenu(); ?>.</p>
+                <p class="text-center"><small><u>Ce changement est permanent et n'est pas réversible!</u></small></p>
+                <p class="text-center">Êtes vous sûr de vouloir continuer?</p>
                 <div class="col-4">
                     <button class="bouton-edit-list"><a href="list.php?id=<?php echo $_GET["id"]; ?>" class="lien-edit-list">Cancel</a></button>
                 </div>
