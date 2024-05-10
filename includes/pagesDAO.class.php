@@ -53,9 +53,7 @@ class pagesDAO{
         }elseif(strlen($contenu) <= self::MIN_CONTENT_LENGTH){
             throw new Exception('Invalid Contenu.');
         }else{
-            //$pages = $this->db->prepare('INSERT INTO pages (sujet_id, nom_menu, position, visible, contenu) VALUES (:sujet_id, :nom_menu, :position, :visible, :contenu)');
-            $pages = $this->db->prepare('UPDATE pages SET sujet_id = :sujet_id , nom_menu = :nom_menu , position = :position , visible = :visible , contenu = :contenu WHERE id = :id)');
-            $pages->bindValue(':id', $sujet_id, PDO::PARAM_STR);
+            $pages = $this->db->prepare('INSERT INTO pages (sujet_id, nom_menu, position, visible, contenu) VALUES (:sujet_id, :nom_menu, :position, :visible, :contenu)');
             $pages->bindValue(':sujet_id', $sujet_id, PDO::PARAM_STR);
             $pages->bindValue(':nom_menu', $nom_menu, PDO::PARAM_STR);
             $pages->bindValue(':position', $position, PDO::PARAM_STR);
@@ -65,18 +63,21 @@ class pagesDAO{
         }
     }
 
-    function edit(string $nom,  int $anneeNaissance, float $solde) : void {
-        /*if(strlen($nom) <= self::MIN_NAME_LENGTH){
-            throw new Exception('Invalid Name.');
+    function edit(int $id, int $sujet_id, string $nom_menu, int $position, bool $visible, string $contenu) : void {
+        if(strlen($contenu) <= self::MIN_CONTENT_LENGTH){
+            throw new Exception('Invalid Contenu.');
+        }elseif(strlen($contenu) <= self::MIN_CONTENT_LENGTH){
+            throw new Exception('Invalid Contenu.');
         }else{
-            self::$id += self::$id;
-            $compte = $connexion->prepare('INSERT INTO compte (id, nom, annee, solde) VALUES (:id, :nom, :annee, :solde)');
-            $compte->bindValue(':id', self::$id, PDO::PARAM_STR);
-            $compte->bindValue(':nom', $nom, PDO::PARAM_STR);
-            $compte->bindValue(':annee', $anneeNaissance, PDO::PARAM_STR);
-            $compte->bindValue(':solde', $solde, PDO::PARAM_STR);
-            $compte->execute();
-        }*/
+            $pages = $this->db->prepare('UPDATE pages SET sujet_id = :sujet_id , nom_menu = :nom_menu , position = :position , visible = :visible , contenu = :contenu WHERE id = :id)');
+            $pages->bindValue(':id', $id, PDO::PARAM_STR);
+            $pages->bindValue(':sujet_id', $sujet_id, PDO::PARAM_STR);
+            $pages->bindValue(':nom_menu', $nom_menu, PDO::PARAM_STR);
+            $pages->bindValue(':position', $position, PDO::PARAM_STR);
+            $pages->bindValue(':visible', $visible, PDO::PARAM_STR);
+            $pages->bindValue(':contenu', $contenu, PDO::PARAM_STR);
+            $pages->execute();
+        }
     }
 
     function delete(int $id) : void {
