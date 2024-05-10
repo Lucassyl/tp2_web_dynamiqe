@@ -50,7 +50,7 @@ tinymce.init({
         </div>
         <div class="position-page-new">
           <b class="b-position-new-page">Position de la page : </b> 
-          <input type="number" name="positionNouvellePageTxt" class="champ-position-nouvelle-page" value=""
+          <input type="number" name="positionNouvellePageTxt" class="champ-position-nouvelle-page"
           <?php
           if (isset($_POST['positionNouvellePageTxt']))
           {
@@ -81,7 +81,7 @@ tinymce.init({
       </div>  
         <div class="champs-page-new">
           <b class="b-contenu-new-page">Contenu de la page : </b>
-          <textarea name="contenuNouvellePageTxt" class="champ-contenu-nouvelle-page"
+          <textarea name="contenuNouvellePageTxt" class="champ-contenu-nouvelle-page" 
           <?php
           if (isset($_POST['contenuNouvellePageTxt']))
           {
@@ -91,16 +91,25 @@ tinymce.init({
         </div>
 
         <?php
-        if (isset($_POST['titreNouvellePageTxt']) && isset($_POST['positionNouvellePageTxt']) && isset($_POST['contenuNouvellePageTxt']))
+        if (isset($_POST['titreNouvellePageTxt']) && isset($_POST['positionNouvellePageTxt']) && isset($_POST['contenuNouvellePageTxt']) && ($_POST['visibiliteNouvellePageTxt'] != 0 ||$_POST['visibiliteNouvellePageTxt'] != 1))
         {
             $valeurTitre = $_POST['titreNouvellePageTxt'];
             $valeurPosition = $_POST['positionNouvellePageTxt'];
+            $valeurVisible = $_POST['visibiliteNouvellePageTxt'];
             $valeurContenu = $_POST['contenuNouvellePageTxt'];
+            $valeurSujet = $_POST['idSujetNouvellePageTxt'];
     
-    
+            header('Location:list.php');
+            exit;
         }
-
-
+        else
+        {
+            ?>
+            <div class="erreur-new">
+              <p class="text-erreur-new">Un ou plusieurs champs non valide</p>
+            </div>
+            <?php
+        }
         ?>
 
       <div class="submit-new-page">
