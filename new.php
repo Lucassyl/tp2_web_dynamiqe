@@ -113,7 +113,7 @@ tinymce.init({
         ?>
 
       <div class="submit-new-page">
-        <button type="submit">Créer la page</button>
+        <input class="bouton-submit-new-page" type="submit" name="Confirmation" value="Créer la page" />
       </div>
     </form>
   </main>

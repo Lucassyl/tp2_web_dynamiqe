@@ -33,9 +33,12 @@ tinymce.init({
 <body>
     <?php
         include_once("includes/header.php");
-        if(!isset($_GET["id"])){
+        if(!isset($_GET["id"]))
+        {
             header('Location:list.php');
-        }else{
+        }
+        else
+        {
             $pages = new pagesDAO($conn);
             if (isset($_POST['titreNouvellePageTxt']) && isset($_POST['positionNouvellePageTxt']) && isset($_POST['contenuNouvellePageTxt']))
             {
@@ -43,23 +46,40 @@ tinymce.init({
                 $valeurPosition = $_POST['positionNouvellePageTxt'];
                 $valeurContenu = $_POST['contenuNouvellePageTxt'];
             }
-            if(isset($_POST["Confirmation"])){
+            if(isset($_POST["Confirmation"]))
+            {
                 try 
                 {
                     //uncomment before submiting
                     //$pages->edit(intval($_GET["id"]), $_POST['idSujetNouvellePageTxt'], $_POST['titreNouvellePageTxt'], $_POST['positionNouvellePageTxt'], $_POST['visibiliteNouvellePageTxt'], $_POST['contenuNouvellePageTxt']);
                     //header('Location:list.php');
+                    //exit;
                 }
                 catch (PDOException $e) 
                 {
                     exit( "Erreur lors de la connexion à la BD: ".$e->getMessage());
                 }
-                echo 'edited';
+                ?>
+                <div class="successful-edit-div">
+                    <b class="successful-edit-text">Changement apporté!</b>
+                </div>
+                <div class="conteneur-menu-edit">
+                    <div class="bouton-accueil-edit">
+                        <button class="bouton-rollback-edit"><a href="index.php" class="lien-edit">Accueil</a></button>
+                    </div>
+                    <div class="bouton-modifier-edit">
+                        <button class="bouton-rollback-edit"><a href="list.php" class="lien-edit">Liste des pages</a></button>
+                    </div>
+                    <div class="bouton-deconnexion-edit">
+                        <button class="bouton-rollback-edit"><a href="includes/logoutPage.php" class="lien-edit">Déconnexion</a></button>
+                    </div>
+                </div>
+                <?php
             }
             $page = $pages->getPageById(intval($_GET["id"]));
     ?>
     <main class="new-main">
-        <h1 class="h1-main">Modifier la page!</h1>
+        <h1 class="h1-main">Modifier une page!</h1>
         <form action="edit.php?id=<?php echo $_GET["id"]; ?>" method="post">
             <div class="information-page-new">
                 <div class="titre-page-new">
@@ -118,13 +138,15 @@ tinymce.init({
             if (isset($_POST['contenuNouvellePageTxt']))
             {
                 echo 'value="' . $_POST['contenuNouvellePageTxt'] . '"';
-            }else{
+            }
+            else
+            {
                 echo 'value="' . $page->getContenu() . '"';
             }
             ?>>Entrer votre contenu</textarea>
             </div>
             <div class="submit-new-page">
-                <input class="bouton-delete-list lien-edit-list" type="submit" name="Confirmation" value="Continue" />
+                <input class="bouton-submit-edit-page" type="submit" name="Confirmation" value="Modifier la page" />
             </div>
         </form>
         <?php

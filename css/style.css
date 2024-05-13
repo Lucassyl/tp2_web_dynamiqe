@@ -184,7 +184,7 @@
 }
 
 
-/* Page new.php */
+/* Page new.php et edit.php */
 
 .information-page-new
 {
@@ -225,6 +225,53 @@
     padding-top: 10px;
 }
 
+
+/* Page edit.php */
+
+.successful-edit-div
+{
+    text-align: center;
+    padding-top: 5px;
+}
+
+.successful-edit-text
+{
+    color: rgb(3, 206, 0);
+}
+
+.conteneur-menu-edit
+{
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.bouton-accueil-edit, .bouton-modifier-edit, .bouton-deconnexion-edit
+{
+    margin: 3px;
+}
+
+.bouton-rollback-edit
+{
+    background-color: rgb(43, 53, 73);
+}
+
+.lien-edit
+{
+    color: white;
+    text-decoration: none;
+}
+
+.bouton-submit-new-page, .bouton-submit-edit-page
+{
+    width: 100%;
+    height: 30px;
+    border-radius: 7px;
+    
+    background-color: rgb(43, 53, 73);
+    color: white;
+}
 
 
 
