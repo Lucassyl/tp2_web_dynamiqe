@@ -89,7 +89,9 @@ tinymce.init({
                     if (isset($_POST['titreNouvellePageTxt']))
                     {
                         echo 'value="' . $_POST['titreNouvellePageTxt'] . '"';
-                    }else{
+                    }
+                    else
+                    {
                         echo 'value="' . $page->getNomMenu() . '"';
                     }
                     ?>>Entrer le titre de votre page</input>
@@ -101,7 +103,9 @@ tinymce.init({
                     if (isset($_POST['positionNouvellePageTxt']))
                     {
                         echo 'value="' . $_POST['positionNouvellePageTxt'] . '"';
-                    }else{
+                    }
+                    else
+                    {
                         echo 'value="' . $page->getPosition() . '"';
                     }
                     ?>>Entrer la position de votre page</input>
@@ -113,7 +117,9 @@ tinymce.init({
                     if (isset($_POST['idSujetNouvellePageTxt']))
                     {
                         echo 'value="' . $_POST['idSujetNouvellePageTxt'] . '"';
-                    }else{
+                    }
+                    else
+                    {
                         echo 'value="' . $page->getSujetId() . '"';
                     }
                     ?>>Entrer l'id du sujet (sa position)</input>
@@ -125,7 +131,9 @@ tinymce.init({
                     if (isset($_POST['visibiliteNouvellePageTxt']))
                     {
                         echo 'value="' . $_POST['visibiliteNouvellePageTxt'] . '"';
-                    }else{
+                    }
+                    else
+                    {
                         echo 'value="' . $page->getVisibilite() . '"';
                     }
                     ?>>0 pour invisible et 1 pour visible</input>
@@ -145,6 +153,17 @@ tinymce.init({
             }
             ?>>Entrer votre contenu</textarea>
             </div>
+
+            <?php
+            if (empty($_POST['titreNouvellePageTxt']) && empty($_POST['positionNouvellePageTxt']) && empty($_POST['contenuNouvellePageTxt']) && (($_POST['visibiliteNouvellePageTxt']) != 0 || ($_POST['visibiliteNouvellePageTxt'] != 1)))
+            {
+                ?>
+                <div class="erreur-new">
+                    <p class="text-erreur-new">Un ou plusieurs champs non valide</p>
+                </div>
+                <?php
+            }
+            ?>
             <div class="submit-new-page">
                 <input class="bouton-submit-edit-page" type="submit" name="Confirmation" value="Modifier la page" />
             </div>
