@@ -51,7 +51,7 @@ tinymce.init({
                 try 
                 {
                     //uncomment before submiting
-                    //$pages->edit(intval($_GET["id"]), $_POST['idSujetNouvellePageTxt'], $_POST['titreNouvellePageTxt'], $_POST['positionNouvellePageTxt'], $_POST['visibiliteNouvellePageTxt'], $_POST['contenuNouvellePageTxt']);
+                    $pages->edit(intval($_GET["id"]), $_POST['idSujetNouvellePageTxt'], $_POST['titreNouvellePageTxt'], $_POST['positionNouvellePageTxt'], $_POST['visibiliteNouvellePageTxt'], $_POST['contenuNouvellePageTxt']);
                     //header('Location:list.php');
                     //exit;
                 }
@@ -155,15 +155,24 @@ tinymce.init({
             </div>
 
             <?php
-            if (empty($_POST['titreNouvellePageTxt']) && empty($_POST['positionNouvellePageTxt']) && empty($_POST['contenuNouvellePageTxt']) && (($_POST['visibiliteNouvellePageTxt']) != 0 || ($_POST['visibiliteNouvellePageTxt'] != 1)))
+            if (isset($_POST['titreNouvellePageTxt']) && isset($_POST['positionNouvellePageTxt']) && isset($_POST['contenuNouvellePageTxt']) && ($_POST['visibiliteNouvellePageTxt'] != 0 ||$_POST['visibiliteNouvellePageTxt'] != 1))
+            {
+                $valeurVisible = $_POST['visibiliteNouvellePageTxt'];
+                $valeurSujet = $_POST['idSujetNouvellePageTxt'];
+    
+                header('Location:list.php');
+                exit;
+            }
+            else
             {
                 ?>
                 <div class="erreur-new">
-                    <p class="text-erreur-new">Un ou plusieurs champs non valide</p>
+                <p class="text-erreur-new">Un ou plusieurs champs non valide</p>
                 </div>
                 <?php
             }
             ?>
+
             <div class="submit-new-page">
                 <input class="bouton-submit-edit-page" type="submit" name="Confirmation" value="Modifier la page" />
             </div>

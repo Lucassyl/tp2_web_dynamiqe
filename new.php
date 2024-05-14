@@ -32,7 +32,45 @@ tinymce.init({
 <body>
   <?php
     include_once("includes/header.php");
-  ?>
+
+    $pages = new pagesDAO($conn);
+    if (isset($_POST['titreNouvellePageTxt']) && isset($_POST['positionNouvellePageTxt']) && isset($_POST['contenuNouvellePageTxt']))
+    {
+        $valeurTitre = $_POST['titreNouvellePageTxt'];
+        $valeurPosition = $_POST['positionNouvellePageTxt'];
+        $valeurContenu = $_POST['contenuNouvellePageTxt'];
+    }
+    if(isset($_POST["Confirmation"]))
+    {
+        try 
+        {
+            //uncomment before submiting
+            $pages->add($_POST['idSujetNouvellePageTxt'], $_POST['titreNouvellePageTxt'], $_POST['positionNouvellePageTxt'], $_POST['visibiliteNouvellePageTxt'], $_POST['contenuNouvellePageTxt']);
+            //header('Location:list.php');
+            //exit;
+        }
+        catch (PDOException $e) 
+        {
+            exit( "Erreur lors de la connexion à la BD: ".$e->getMessage());
+        }
+        ?>
+        <div class="successful-edit-div">
+            <b class="successful-edit-text">Changement apporté!</b>
+        </div>
+        <div class="conteneur-menu-edit">
+            <div class="bouton-accueil-edit">
+                <button class="bouton-rollback-edit"><a href="index.php" class="lien-edit">Accueil</a></button>
+            </div>
+            <div class="bouton-modifier-edit">
+                <button class="bouton-rollback-edit"><a href="list.php" class="lien-edit">Liste des pages</a></button>
+            </div>
+            <div class="bouton-deconnexion-edit">
+                <button class="bouton-rollback-edit"><a href="includes/logoutPage.php" class="lien-edit">Déconnexion</a></button>
+            </div>
+        </div>
+        <?php
+    }
+    ?>
 
   <main class="new-main">
     <h1 class="h1-main">Ajouter une page!</h1>
