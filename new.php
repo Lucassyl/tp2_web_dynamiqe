@@ -129,25 +129,20 @@ tinymce.init({
         </div>
 
         <?php
-        if (isset($_POST['titreNouvellePageTxt']) && isset($_POST['positionNouvellePageTxt']) && isset($_POST['contenuNouvellePageTxt']) && ($_POST['visibiliteNouvellePageTxt'] != 0 ||$_POST['visibiliteNouvellePageTxt'] != 1))
-        {
-            $valeurTitre = $_POST['titreNouvellePageTxt'];
-            $valeurPosition = $_POST['positionNouvellePageTxt'];
-            $valeurVisible = $_POST['visibiliteNouvellePageTxt'];
-            $valeurContenu = $_POST['contenuNouvellePageTxt'];
-            $valeurSujet = $_POST['idSujetNouvellePageTxt'];
-    
-            header('Location:list.php');
-            exit;
-        }
-        else
-        {
-            ?>
-            <div class="erreur-new">
+          //titreNouvellePageTxt : Obligatoire, (non vide, pas seulement des espaces)
+          //contenuNouvellePageTxt : Obligatoire, (non vide, pas seulement des espaces)
+          //positionNouvellePageTxt : Obligatoire, doit être un nombre entre 1 et le nombre de page + 1
+          //visibiliteNouvellePageTxt : Obligatoire, doit être 0 ou 1 (car, il n'y a pas de booléeen dans la BD)
+          if (empty($_POST['titreNouvellePageTxt']) || empty($_POST['contenuNouvellePageTxt']) || 
+              empty($_POST['positionNouvellePageTxt']) || empty($_POST['visibiliteNouvellePageTxt']) ||
+              $_POST['visibiliteNouvellePageTxt'] != 0 || $_POST['visibiliteNouvellePageTxt'] != 1) 
+          {
+              ?>
+              <div class="erreur-new">
               <p class="text-erreur-new">Un ou plusieurs champs non valide</p>
-            </div>
-            <?php
-        }
+              </div>
+              <?php
+          }
         ?>
 
       <div class="submit-new-page">
