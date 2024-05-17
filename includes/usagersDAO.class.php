@@ -20,11 +20,10 @@ class usagersDAO{
             throw new Exception('<b class="error-signin">Aucun identifiant trouvé!</b>');
         }
         $match = $matchingUsagers->fetch();
-        $usager = new usagers($match["id"], $match["login"], $match["enc_password"]);
-        $matchingUsagers->closeCursor();
-        if(!$usager->checkPassword($password)){
+        if(!password_verify($password, $match["enc_password"])){
             throw new Exception('<b class="error-signin">Mot de passe erroné</b>');
         }
+        $matchingUsagers->closeCursor();
     }
 
     function getAllUsagers() : array {
