@@ -34,12 +34,6 @@ tinymce.init({
     include_once("includes/header.php");
 
     $pages = new pagesDAO($conn);
-    if (isset($_POST['titreNouvellePageTxt']) && isset($_POST['positionNouvellePageTxt']) && isset($_POST['contenuNouvellePageTxt']))
-    {
-        $valeurTitre = $_POST['titreNouvellePageTxt'];
-        $valeurPosition = $_POST['positionNouvellePageTxt'];
-        $valeurContenu = $_POST['contenuNouvellePageTxt'];
-    }
     if(isset($_POST["Confirmation"]))
     {
         try 
