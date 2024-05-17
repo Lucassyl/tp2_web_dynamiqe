@@ -45,7 +45,7 @@ tinymce.init({
         try 
         {
             //uncomment before submiting
-            $pages->add($_POST['idSujetNouvellePageTxt'], $_POST['titreNouvellePageTxt'], $_POST['positionNouvellePageTxt'], $_POST['visibiliteNouvellePageTxt'], $_POST['contenuNouvellePageTxt']);
+            $pages->add(intval($_POST['idSujetNouvellePageTxt']), $_POST['titreNouvellePageTxt'], intval($_POST['positionNouvellePageTxt']), filter_var($_POST['visibiliteNouvellePageTxt'], FILTER_VALIDATE_BOOLEAN), $_POST['contenuNouvellePageTxt']);
             ?>
             <div class="successful-edit-div">
               <b class="successful-edit-text">Changement apporté!</b>
