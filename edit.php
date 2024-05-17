@@ -162,7 +162,8 @@ tinymce.init({
             //visibiliteNouvellePageTxt : Obligatoire, doit être 0 ou 1 (car, il n'y a pas de booléeen dans la BD)
             if (empty($_POST['titreNouvellePageTxt']) || empty($_POST['contenuNouvellePageTxt']) || 
                 empty($_POST['positionNouvellePageTxt']) || empty($_POST['visibiliteNouvellePageTxt']) ||
-                $_POST['visibiliteNouvellePageTxt'] != 0 || $_POST['visibiliteNouvellePageTxt'] != 1) 
+                $_POST['visibiliteNouvellePageTxt'] != 0 || $_POST['visibiliteNouvellePageTxt'] != 1 ||
+                ($_POST['positionNouvellePageTxt'] < 1) || $_POST['positionNouvellePageTxt'] > $pages->getAllBySujetId($conn).length + 1) 
             {
                 ?>
                 <div class="erreur-new">
