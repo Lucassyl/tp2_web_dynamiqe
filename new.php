@@ -93,7 +93,6 @@ tinymce.init({
           }
           ?></textarea>
         </div>
-
         <?php
           if(isset($_POST["Confirmation"]))
           {
@@ -130,10 +129,8 @@ tinymce.init({
       </div>
     </form>
   </main>
-
   <?php
     include_once("includes/footer.php");
   ?>
-    
 </body>
 </html>
