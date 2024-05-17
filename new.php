@@ -100,32 +100,32 @@ tinymce.init({
         <?php
           if(isset($_POST["Confirmation"]))
           {
-            try 
-            {
-            //uncomment before submiting
-            $pages->add(intval($_POST['idSujetNouvellePageTxt']), $_POST['titreNouvellePageTxt'], intval($_POST['positionNouvellePageTxt']), filter_var($_POST['visibiliteNouvellePageTxt'], FILTER_VALIDATE_BOOLEAN), $_POST['contenuNouvellePageTxt']);
-            ?>
-            <div class="successful-edit-div">
-                <b class="successful-edit-text">Changement apporté!</b>
-            </div>
-                <div class="conteneur-menu-edit">
-                    <div class="bouton-accueil-edit">
-                        <button class="bouton-rollback-edit"><a href="index.php" class="lien-edit">Accueil</a></button>
-                    </div>
-                <div class="bouton-modifier-edit">
-                <button class="bouton-rollback-edit"><a href="list.php" class="lien-edit">Liste des pages</a></button>
-            </div>
-                <div class="bouton-deconnexion-edit">
-                    <button class="bouton-rollback-edit"><a href="includes/logoutPage.php" class="lien-edit">Déconnexion</a></button>
-                </div>
-            </div>
-            <?php
-                }
-                catch (PDOException $e) 
-                {
-                    exit( "Erreur lors de la connexion à la BD: ".$e->getMessage());
-                }
-            }
+              try 
+              {
+              //uncomment before submiting
+              $pages->add(intval($_POST['idSujetNouvellePageTxt']), $_POST['titreNouvellePageTxt'], intval($_POST['positionNouvellePageTxt']), filter_var($_POST['visibiliteNouvellePageTxt'], FILTER_VALIDATE_BOOLEAN), $_POST['contenuNouvellePageTxt']);
+              ?>
+              <div class="successful-edit-div">
+                  <b class="successful-edit-text">Changement apporté!</b>
+              </div>
+                  <div class="conteneur-menu-edit">
+                      <div class="bouton-accueil-edit">
+                          <button class="bouton-rollback-edit"><a href="index.php" class="lien-edit">Accueil</a></button>
+                      </div>
+                  <div class="bouton-modifier-edit">
+                  <button class="bouton-rollback-edit"><a href="list.php" class="lien-edit">Liste des pages</a></button>
+              </div>
+                  <div class="bouton-deconnexion-edit">
+                      <button class="bouton-rollback-edit"><a href="includes/logoutPage.php" class="lien-edit">Déconnexion</a></button>
+                  </div>
+              </div>
+              <?php
+              }
+              catch (PDOException $e) 
+              {
+                  exit( "Erreur lors de la connexion à la BD: ".$e->getMessage());
+              }
+          }
           //titreNouvellePageTxt : Obligatoire, (non vide, pas seulement des espaces)
           //contenuNouvellePageTxt : Obligatoire, (non vide, pas seulement des espaces)
           //positionNouvellePageTxt : Obligatoire, doit être un nombre entre 1 et le nombre de page + 1
