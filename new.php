@@ -127,7 +127,7 @@ tinymce.init({
           }
           else
           {
-              echo '' . $page->getContenu() . '';
+              echo 'Entrer votre contenu';
           }
           ?></textarea>
         </div>
