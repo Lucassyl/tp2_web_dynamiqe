@@ -52,28 +52,28 @@ tinymce.init({
                 {
                     //uncomment before submiting
                     $pages->edit(intval($_GET["id"]), $_POST['idSujetNouvellePageTxt'], $_POST['titreNouvellePageTxt'], $_POST['positionNouvellePageTxt'], $_POST['visibiliteNouvellePageTxt'], $_POST['contenuNouvellePageTxt']);
-                    //header('Location:list.php');
-                    //exit;
+                    ?>
+                    <div class="successful-edit-div">
+                        <b class="successful-edit-text">Changement apporté!</b>
+                    </div>
+                    <div class="conteneur-menu-edit">
+                        <div class="bouton-accueil-edit">
+                            <button class="bouton-rollback-edit"><a href="index.php" class="lien-edit">Accueil</a></button>
+                        </div>
+                        <div class="bouton-modifier-edit">
+                            <button class="bouton-rollback-edit"><a href="list.php" class="lien-edit">Liste des pages</a></button>
+                        </div>
+                        <div class="bouton-deconnexion-edit">
+                            <button class="bouton-rollback-edit"><a href="includes/logoutPage.php" class="lien-edit">Déconnexion</a></button>
+                        </div>
+                    </div>
+                    <?php
                 }
                 catch (PDOException $e) 
                 {
                     exit( "Erreur lors de la connexion à la BD: ".$e->getMessage());
                 }
                 ?>
-                <div class="successful-edit-div">
-                    <b class="successful-edit-text">Changement apporté!</b>
-                </div>
-                <div class="conteneur-menu-edit">
-                    <div class="bouton-accueil-edit">
-                        <button class="bouton-rollback-edit"><a href="index.php" class="lien-edit">Accueil</a></button>
-                    </div>
-                    <div class="bouton-modifier-edit">
-                        <button class="bouton-rollback-edit"><a href="list.php" class="lien-edit">Liste des pages</a></button>
-                    </div>
-                    <div class="bouton-deconnexion-edit">
-                        <button class="bouton-rollback-edit"><a href="includes/logoutPage.php" class="lien-edit">Déconnexion</a></button>
-                    </div>
-                </div>
                 <?php
             }
             $page = $pages->getPageById(intval($_GET["id"]));
