@@ -277,8 +277,8 @@
 /* htaccess */
 .error-404
 {
+    color: rgb(18, 0, 0);
     font-size: large;
-    color: red;
 }
 
 
