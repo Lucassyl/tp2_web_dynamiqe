@@ -51,29 +51,29 @@ tinymce.init({
                 try 
                 {
                     //uncomment before submiting
-                    $pages->edit(intval($_GET["id"]), $_POST['idSujetNouvellePageTxt'], $_POST['titreNouvellePageTxt'], $_POST['positionNouvellePageTxt'], $_POST['visibiliteNouvellePageTxt'], $_POST['contenuNouvellePageTxt']);
-                    ?>
-                    <div class="successful-edit-div">
-                        <b class="successful-edit-text">Changement apporté!</b>
-                    </div>
-                    <div class="conteneur-menu-edit">
-                        <div class="bouton-accueil-edit">
-                            <button class="bouton-rollback-edit"><a href="index.php" class="lien-edit">Accueil</a></button>
-                        </div>
-                        <div class="bouton-modifier-edit">
-                            <button class="bouton-rollback-edit"><a href="list.php" class="lien-edit">Liste des pages</a></button>
-                        </div>
-                        <div class="bouton-deconnexion-edit">
-                            <button class="bouton-rollback-edit"><a href="includes/logoutPage.php" class="lien-edit">Déconnexion</a></button>
-                        </div>
-                    </div>
-                    <?php
+                    $pages->edit(intval($_GET["id"]), intval($_POST['idSujetNouvellePageTxt']), $_POST['titreNouvellePageTxt'], intval($_POST['positionNouvellePageTxt']), filter_var($_POST['visibiliteNouvellePageTxt'], FILTER_VALIDATE_BOOLEAN), $_POST['contenuNouvellePageTxt']);
+                    //header('Location:list.php');
+                    //exit;
                 }
                 catch (PDOException $e) 
                 {
                     exit( "Erreur lors de la connexion à la BD: ".$e->getMessage());
                 }
                 ?>
+                <div class="successful-edit-div">
+                    <b class="successful-edit-text">Changement apporté!</b>
+                </div>
+                <div class="conteneur-menu-edit">
+                    <div class="bouton-accueil-edit">
+                        <button class="bouton-rollback-edit"><a href="index.php" class="lien-edit">Accueil</a></button>
+                    </div>
+                    <div class="bouton-modifier-edit">
+                        <button class="bouton-rollback-edit"><a href="list.php" class="lien-edit">Liste des pages</a></button>
+                    </div>
+                    <div class="bouton-deconnexion-edit">
+                        <button class="bouton-rollback-edit"><a href="includes/logoutPage.php" class="lien-edit">Déconnexion</a></button>
+                    </div>
+                </div>
                 <?php
             }
             $page = $pages->getPageById(intval($_GET["id"]));
@@ -141,17 +141,17 @@ tinymce.init({
             </div>  
             <div class="champs-page-new">
             <b class="b-contenu-new-page">Contenu de la page : </b>
-            <textarea name="contenuNouvellePageTxt" class="champ-contenu-nouvelle-page"
+            <textarea name="contenuNouvellePageTxt" class="champ-contenu-nouvelle-page">
             <?php
             if (isset($_POST['contenuNouvellePageTxt']))
             {
-                echo 'value="' . $_POST['contenuNouvellePageTxt'] . '"';
+                echo '' . $_POST['contenuNouvellePageTxt'] . '';
             }
             else
             {
-                echo 'value="' . $page->getContenu() . '"';
+                echo '' . $page->getContenu() . '';
             }
-            ?>>Entrer votre contenu</textarea>
+            ?></textarea>
             </div>
 
             
