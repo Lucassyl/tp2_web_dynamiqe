@@ -86,7 +86,7 @@ class pagesDAO{
     }
 
     function delete(int $id) : void {
-        $pages = $this->db->prepare("DELETE * FROM pages WHERE id = :id");
+        $pages = $this->db->prepare('DELETE * FROM pages WHERE id = :id');
         $pages->bindValue(':id', $id, PDO::PARAM_STR);
         $pages->execute();
     }
