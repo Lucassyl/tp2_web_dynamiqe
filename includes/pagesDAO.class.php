@@ -80,6 +80,11 @@ class pagesDAO{
         }
     }
 
+    function getPagesNumber() : int {
+        $array = self::getAllPages();
+        return count($array);
+    }
+
     function delete(int $id) : void {
         $pages = $this->db->prepare("DELETE * FROM pages WHERE id = :id");
         $pages->bindValue(':id', $id, PDO::PARAM_STR);
