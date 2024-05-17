@@ -119,13 +119,17 @@ tinymce.init({
       </div>  
         <div class="champs-page-new">
           <b class="b-contenu-new-page">Contenu de la page : </b>
-          <textarea name="contenuNouvellePageTxt" class="champ-contenu-nouvelle-page" 
+          <textarea name="contenuNouvellePageTxt" class="champ-contenu-nouvelle-page">
           <?php
           if (isset($_POST['contenuNouvellePageTxt']))
-          {
-              echo 'value="' . $_POST['contenuNouvellePageTxt'] . '"';
+            {
+              echo '' . $_POST['contenuNouvellePageTxt'] . '';
           }
-          ?>>Entrer votre contenu</textarea>
+          else
+          {
+              echo '' . $page->getContenu() . '';
+          }
+          ?></textarea>
         </div>
 
         <?php
