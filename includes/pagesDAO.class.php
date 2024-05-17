@@ -48,10 +48,8 @@ class pagesDAO{
     function add(int $sujet_id, string $nom_menu, int $position, bool $visible, string $contenu) : void {
         /*$pages = new pagesDAO($conn);
         $pagesArray = $pages->getAllBySujetId($i);*/
-        if(strlen($contenu) <= self::MIN_CONTENT_LENGTH){
-            throw new Exception('Invalid Contenu.');
-        }elseif(strlen($contenu) <= self::MIN_CONTENT_LENGTH){
-            throw new Exception('Invalid Contenu.');
+        if (empty($nom_menu) || empty($contenu) || empty($position) || empty($visible) || !is_bool($visible)){
+            throw new Exception('Un ou plusieurs champs non valide');
         }else{
             $pages = $this->db->prepare('INSERT INTO pages (sujet_id, nom_menu, position, visible, contenu) VALUES (:sujet_id, :nom_menu, :position, :visible, :contenu)');
             $pages->bindValue(':sujet_id', $sujet_id, PDO::PARAM_STR);
@@ -64,10 +62,8 @@ class pagesDAO{
     }
 
     function edit(int $id, int $sujet_id, string $nom_menu, int $position, bool $visible, string $contenu) : void {
-        if(strlen($contenu) <= self::MIN_CONTENT_LENGTH){
-            throw new Exception('Invalid Contenu.');
-        }elseif(strlen($contenu) <= self::MIN_CONTENT_LENGTH){
-            throw new Exception('Invalid Contenu.');
+        if (empty($nom_menu) || empty($contenu) || empty($position) || empty($visible) || !is_bool($visible)){
+            throw new Exception('Un ou plusieurs champs non valide');
         }else{
             $pages = $this->db->prepare('UPDATE pages SET sujet_id = :sujet_id , nom_menu = :nom_menu , position = :position , visible = :visible , contenu = :contenu WHERE id = :id');
             $pages->bindValue(':id', $id, PDO::PARAM_STR);
