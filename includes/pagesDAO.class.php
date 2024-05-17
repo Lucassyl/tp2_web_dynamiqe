@@ -69,7 +69,7 @@ class pagesDAO{
         }elseif(strlen($contenu) <= self::MIN_CONTENT_LENGTH){
             throw new Exception('Invalid Contenu.');
         }else{
-            $pages = $this->db->prepare('UPDATE pages SET sujet_id = :sujet_id , nom_menu = :nom_menu , position = :position , visible = :visible , contenu = :contenu WHERE id = :id)');
+            $pages = $this->db->prepare('UPDATE pages SET sujet_id = :sujet_id , nom_menu = :nom_menu , position = :position , visible = :visible , contenu = :contenu WHERE id = :id');
             $pages->bindValue(':id', $id, PDO::PARAM_STR);
             $pages->bindValue(':sujet_id', $sujet_id, PDO::PARAM_STR);
             $pages->bindValue(':nom_menu', $nom_menu, PDO::PARAM_STR);
