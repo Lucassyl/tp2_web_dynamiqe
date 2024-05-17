@@ -111,7 +111,7 @@ tinymce.init({
                     ?>>Entrer la position de votre page</input>
                 </div>
                 <div class="id-sujet-page-new">
-                    <b class="b-id-sujet-new-page">Sujet de la page : </b> 
+                    <b class="b-id-sujet-new-page">Sujet de la page (Facultatif) : </b> 
                     <input type="number" name="idSujetNouvellePageTxt" class="champ-id-sujet-nouvelle-page"
                     <?php
                     if (isset($_POST['idSujetNouvellePageTxt']))

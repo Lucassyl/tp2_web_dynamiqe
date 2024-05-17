@@ -274,5 +274,11 @@
 }
 
 
+/* htaccess */
+.error-404
+{
+    font-size: large;
+    color: red;
+}
 
 

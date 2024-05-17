@@ -98,7 +98,7 @@ tinymce.init({
         </div>
         <div class="id-sujet-page-new">
           <b class="b-id-sujet-new-page">Sujet de la page (Facultatif) : </b> 
-          <input type="number" name="idSujetNouvellePageTxt" class="champ-id-sujet-nouvelle-page"
+          <input type="number" name="idSujetNouvellePageTxt" class="champ-id-sujet-nouvelle-page" value="0"
           <?php
           if (isset($_POST['idSujetNouvellePageTxt']))
           {
