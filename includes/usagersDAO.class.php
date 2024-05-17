@@ -11,7 +11,7 @@ class usagersDAO{
         $this->db = $db;
     }
 
-    function getMatchingUsagers(string $user, string $password) : bool {
+    function getMatchingUsagers(string $user, string $password) : void {
         $matchingUsagers = $this->db->prepare("SELECT * FROM usagers WHERE login = :login");
         $matchingUsagers->bindValue(':login', $user, PDO::PARAM_STR);
         $matchingUsagers->execute();
@@ -25,7 +25,6 @@ class usagersDAO{
         if(!$usager->checkPassword($password)){
             throw new Exception('<b class="error-signin">Mot de passe erroné</b>');
         }
-        return true;
     }
 
     function getAllUsagers() : array {

@@ -28,8 +28,10 @@ session_start();
     {
         try
         {
-            $usagers = new usagersDAO($conn);
-            $usagers->getMatchingUsagers($_POST['txtLogin'], $_POST['txtPassword']);
+            $usagers = new usagers($_POST['txtLogin'], $_POST['txtPassword']);
+            $usagers->getMatch($conn);
+            //$usagers = new usagersDAO($conn);
+            //$usagers->getMatchingUsagers($_POST['txtLogin'], $_POST['txtPassword']);
             $_SESSION['txtLogin'] = $_POST['txtLogin'];
             $_SESSION['txtPassword'] = $_POST['txtPassword'];
             header('Location:list.php');
