@@ -1,3 +1,13 @@
+<?php
+    session_start();
+
+if (!isset($_SESSION['txtLogin']) && !isset($_SESSION['txtPassword']))
+{
+    header('Location:signin.php');
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
