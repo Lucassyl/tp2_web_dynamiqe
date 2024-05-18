@@ -46,36 +46,6 @@ tinymce.init({
                 $valeurPosition = $_POST['positionNouvellePageTxt'];
                 $valeurContenu = $_POST['contenuNouvellePageTxt'];
             }
-            if(isset($_POST["Confirmation"]))
-            {
-                try 
-                {
-                    //uncomment before submiting
-                    $pages->edit(intval($_GET["id"]), intval($_POST['idSujetNouvellePageTxt']), $_POST['titreNouvellePageTxt'], intval($_POST['positionNouvellePageTxt']), filter_var($_POST['visibiliteNouvellePageTxt'], FILTER_VALIDATE_BOOLEAN), $_POST['contenuNouvellePageTxt']);
-                    //header('Location:list.php');
-                    //exit;
-                }
-                catch (PDOException $e) 
-                {
-                    exit( "Erreur lors de la connexion à la BD: ".$e->getMessage());
-                }
-                ?>
-                <div class="successful-edit-div">
-                    <b class="successful-edit-text">Changement apporté!</b>
-                </div>
-                <div class="conteneur-menu-edit">
-                    <div class="bouton-accueil-edit">
-                        <button class="bouton-rollback-edit"><a href="index.php" class="lien-edit">Accueil</a></button>
-                    </div>
-                    <div class="bouton-modifier-edit">
-                        <button class="bouton-rollback-edit"><a href="list.php" class="lien-edit">Liste des pages</a></button>
-                    </div>
-                    <div class="bouton-deconnexion-edit">
-                        <button class="bouton-rollback-edit"><a href="includes/logoutPage.php" class="lien-edit">Déconnexion</a></button>
-                    </div>
-                </div>
-                <?php
-            }
             $page = $pages->getPageById(intval($_GET["id"]));
     ?>
     <main class="new-main">
@@ -156,20 +126,32 @@ tinymce.init({
 
             
             <?php
-            //titreNouvellePageTxt : Obligatoire, (non vide, pas seulement des espaces)
-            //contenuNouvellePageTxt : Obligatoire, (non vide, pas seulement des espaces)
-            //positionNouvellePageTxt : Obligatoire, doit être un nombre entre 1 et le nombre de page + 1
-            //visibiliteNouvellePageTxt : Obligatoire, doit être 0 ou 1 (car, il n'y a pas de booléeen dans la BD)
-            if (empty($_POST['titreNouvellePageTxt']) || empty($_POST['contenuNouvellePageTxt']) || 
-                empty($_POST['positionNouvellePageTxt']) || empty($_POST['visibiliteNouvellePageTxt']) ||
-                $_POST['visibiliteNouvellePageTxt'] != 0 || $_POST['visibiliteNouvellePageTxt'] != 1 ||
-                ($_POST['positionNouvellePageTxt'] < 1) || $_POST['positionNouvellePageTxt'] > $pages->getAllBySujetId($conn).length + 1) 
+            if(isset($_POST["Confirmation"]))
             {
-                ?>
-                <div class="erreur-new">
-                <p class="text-erreur-new">Un ou plusieurs champs non valide</p>
-                </div>
-                <?php
+                try 
+                {
+                    $pages->edit(intval($_GET["id"]), intval($_POST['idSujetNouvellePageTxt']), $_POST['titreNouvellePageTxt'], intval($_POST['positionNouvellePageTxt']), filter_var($_POST['visibiliteNouvellePageTxt'], FILTER_VALIDATE_BOOLEAN), $_POST['contenuNouvellePageTxt']);
+                    ?>
+                        <div class="successful-edit-div">
+                            <b class="successful-edit-text">Changement apporté!</b>
+                        </div>
+                        <div class="conteneur-menu-edit">
+                            <div class="bouton-accueil-edit">
+                                <button class="bouton-rollback-edit"><a href="index.php" class="lien-edit">Accueil</a></button>
+                            </div>
+                            <div class="bouton-modifier-edit">
+                                <button class="bouton-rollback-edit"><a href="list.php" class="lien-edit">Liste des pages</a></button>
+                            </div>
+                            <div class="bouton-deconnexion-edit">
+                                <button class="bouton-rollback-edit"><a href="includes/logoutPage.php" class="lien-edit">Déconnexion</a></button>
+                            </div>
+                        </div>
+                    <?php
+                }
+                catch (Exception $e) 
+                {
+                    echo'<div class="erreur-new"><p class="text-erreur-new">'.$e->getMessage().'</p></div>';
+                }
             }
             ?>
 

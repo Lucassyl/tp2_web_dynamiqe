@@ -3,13 +3,11 @@ declare(strict_types=1);
 
 class usagers {
 
-    private int $id;
     private string $login;
     private string $encPassword;
 
-    function __construct(int $id, string $login,  string $encPassword) {
+    function __construct(string $login,  string $encPassword) {
         try{
-            self::setId($id);
             self::setLogin($login);
             self::setEncPassword($encPassword);
         } catch (Exception $e){
@@ -17,8 +15,15 @@ class usagers {
         }
     }
 
-    function setId(int $id) : void {
-        $this->id = $id;
+    function getMatch(PDO $conn) : void {
+        try{
+            $usagers = new usagersDAO($conn);
+            $array = $usagers->getMatchingUsagers($this->login, $this->encPassword);
+        }
+        catch (Exception $e)
+        {
+            throw new Exception($e->getMessage());
+        }
     }
 
     function setLogin(string $login) : void {
@@ -29,10 +34,6 @@ class usagers {
         $this->encPassword = $encPassword;
     }
 
-    function getId() : int {
-        return $this->id;
-    }
-
     function getNom() : string {
         return $this->login;
     }
@@ -41,15 +42,8 @@ class usagers {
         return $this->encPassword;
     }
 
-    function checkPassword(string $password) : bool {
-        if(password_verify($password, $this->encPassword)){
-            return true;
-        }
-        return false;
-    }
-
     function __toString() : string {
-        return '<p>Login : '.$this->login.' ( Id : '.$this->id.'), Password : '.$this->encPassword.'</p><br>';
+        return '<p>Login : '.$this->login.' , Password : '.$this->encPassword.'</p><br>';
     }
 }
 ?>
